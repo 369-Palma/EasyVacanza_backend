@@ -96,7 +96,6 @@ INDEX VERSION 1.132+C:\Users\Palma\Desktop\EPICODE\Capstone project\.metadata\.p
 566384969.index
 2689939192.index
 4126282140.index
-1684371787.index
 1340735682.index
 1600888866.index
 1637238434.index
