@@ -15,6 +15,6 @@ user.admin.lastname=AdminIaco
 user.admin.email=palma.iaco@example.com
 user.admin.password=qwerty
 
-# Dati per token (durate 3 mesi dal 7/5/2023
+# Dati per token
 app.jwt-secret=daf66e01593f61a15b857cf433aae03a005812b31234e149036bcc8dee755dbb
-app.jwt-expiration-milliseconds=7889400000
+app.jwt-expiration-milliseconds=604800000000000
