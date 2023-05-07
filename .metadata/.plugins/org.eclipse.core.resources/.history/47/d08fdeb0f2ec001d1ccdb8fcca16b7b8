@@ -1,0 +1,9 @@
+package com.palma.gestioneeasyvacanza.repository;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import com.palma.gestioneeasyvacanza.model.Utente;
+
+public interface UtenteRepository extends JpaRepository<Utente, Long> {
+
+}
