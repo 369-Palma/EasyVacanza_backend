@@ -1,0 +1,20 @@
+# Dati accesso al DB spring_jpa_rest
+spring.datasource.driver-class-name=org.postgresql.Driver
+spring.datasource.url=jdbc:postgresql://localhost:5432/easyvacanza
+spring.datasource.username=postgres
+spring.datasource.password=root
+
+# create - create-drop - update - none
+spring.jpa.hibernate.ddl-auto= update
+
+# Dati per User Admin
+user.admin.name=AdminPalma
+user.admin.lastname=AdminIaco
+user.admin.email=palma.iaco@example.com
+user.admin.password=qwerty
+
+# Dati accesso al DB spring_rest_security
+spring.datasource.driver-class-name=org.postgresql.Driver
+spring.datasource.url=jdbc:postgresql://localhost:5432/easyvacanza
+spring.datasource.username=postgres
+spring.datasource.password=root
