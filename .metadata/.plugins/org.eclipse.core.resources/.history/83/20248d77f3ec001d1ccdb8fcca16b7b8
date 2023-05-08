@@ -1,0 +1,7 @@
+package com.palma.gestioneeasyvacanza.model;
+
+import com.palma.gestioneeasyvacanza.auth.entity.User;
+
+public class Utente extends User {
+	private Integer age;
+}

@@ -1,0 +1,9 @@
+package com.palma.gestioneeasyvacanza.model;
+
+public enum Tipologia {
+	MARE,
+	MONTAGNA,
+	FORESTA,
+	CAMPAGNA,
+	METROPOLI;
+}

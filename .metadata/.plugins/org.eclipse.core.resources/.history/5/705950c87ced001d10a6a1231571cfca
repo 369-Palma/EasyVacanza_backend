@@ -1,0 +1,7 @@
+package com.palma.gestioneeasyvacanza.model;
+
+public enum StatoPrenotazione {
+	CONFERMATO,
+	IN_ELABORAZIONE,
+	ANNULLATA;
+}

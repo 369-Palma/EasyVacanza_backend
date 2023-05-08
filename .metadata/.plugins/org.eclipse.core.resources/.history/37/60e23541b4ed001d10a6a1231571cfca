@@ -1,0 +1,21 @@
+# Dati accesso al DB easyvacanza
+spring.datasource.driver-class-name=org.postgresql.Driver
+spring.datasource.url=jdbc:postgresql://localhost:5432/easyvacanza
+spring.datasource.username=postgres
+spring.datasource.password=root
+
+# create - create-drop - update - none
+spring.jpa.hibernate.ddl-auto= update
+
+# customized server port
+server.port=8086
+# Dati per User Admin
+user.admin.name=AdminPalma
+user.admin.surname=AdminIaco
+user.admin.usernme = iaco.p
+user.admin.email=palma.iaco@example.com
+user.admin.password=qwerty
+
+# Dati per token (durate 3 mesi dal 7/5/2023
+app.jwt-secret=daf66e01593f61a15b857cf433aae03a005812b31234e149036bcc8dee755dbb
+app.jwt-expiration-milliseconds=7889400000

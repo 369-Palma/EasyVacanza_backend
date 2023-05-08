@@ -1,0 +1,15 @@
+package com.palma.gestioneeasyvacanza.model;
+
+import com.palma.gestioneeasyvacanza.auth.entity.User;
+
+import lombok.*;
+
+@NoArgsConstructor
+@AllArgsConstructor
+@Getter
+@Setter
+@ToString
+@Builder
+public class Utente extends User {
+	private Integer age;
+}

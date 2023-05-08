@@ -1,0 +1,5 @@
+package com.palma.gestioneeasyvacanza.model;
+
+public class Vacanza {
+
+}

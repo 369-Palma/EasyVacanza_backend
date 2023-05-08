@@ -1,0 +1,9 @@
+package com.palma.gestioneeasyvacanza.model;
+
+
+public class Utente {
+	private String name;
+	private String lastname;
+	private String email;
+	private Integer age;
+}
