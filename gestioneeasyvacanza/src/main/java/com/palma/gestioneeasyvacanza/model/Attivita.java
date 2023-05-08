@@ -38,8 +38,10 @@ public class Attivita {
 	private String descrizione;
 	@Column(nullable = false)
 	private Difficolta difficolta;
-	@ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+	
+	@ManyToMany
 	private List <Vacanza> vacanze;
+	
 	@OneToMany(mappedBy = "attivita", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
 	@JsonIgnoreProperties({"attivita"})
 	private List <Testimonianza> testimonianze;

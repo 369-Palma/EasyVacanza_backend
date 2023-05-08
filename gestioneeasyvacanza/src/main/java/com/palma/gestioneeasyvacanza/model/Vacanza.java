@@ -3,8 +3,6 @@ package com.palma.gestioneeasyvacanza.model;
 import java.time.LocalDate;
 import java.util.List;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -17,7 +15,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.JoinTable;
 import jakarta.persistence.ManyToMany;
-import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -62,6 +60,7 @@ public class Vacanza {
 	private Preferenze preferenze;
 	@Column(nullable = false)
 	private Double prezzo;
+	
 	@ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.MERGE)
 	@JoinTable(name = "vacanze_attivita",
      joinColumns = @JoinColumn(name = "vacanze_id", referencedColumnName = "id"),
@@ -69,4 +68,6 @@ public class Vacanza {
 	)
 	private List <Attivita> attivita;
 	
+	@OneToOne(mappedBy = "vacanza")
+	private Prenotazione prenotazione;
 }

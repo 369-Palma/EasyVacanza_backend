@@ -24,7 +24,11 @@ public class Cliente extends User {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	private Integer age;
-	@ManyToMany(mappedBy = "cliente", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+	
+	@ManyToMany(mappedBy = "clienti", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
 	@JsonIgnoreProperties({"cliente"})
 	private List<Prenotazione> prenotazioni;
+	
+	@OneToMany(mappedBy = "cliente")
+	private List<Testimonianza> testimonianze;
 }

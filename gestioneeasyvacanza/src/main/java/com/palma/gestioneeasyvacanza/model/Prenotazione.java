@@ -3,8 +3,6 @@ package com.palma.gestioneeasyvacanza.model;
 import java.time.LocalDate;
 import java.util.List;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -19,14 +17,21 @@ import lombok.*;
 public class Prenotazione {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
+	private Long numeroprenotazione;
+	@Column(nullable = false)
 	private LocalDate dataprenotazione;
+	@Column(nullable = false)
 	private Integer numerospiti;
 	@Enumerated(EnumType.STRING)
 	private StatoPrenotazione stato;
 	
+	@OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+	@JoinColumn(name = "id_vacanza")
 	private Vacanza vacanza;
-	@ManyToMany(mappedBy = "prenotazione", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-	@JsonIgnoreProperties({"prenotazione"})
-	private List <Cliente> cliente;
+	
+	@ManyToMany
+	@JoinTable(name = "Prenotazione_Cliente",
+			joinColumns = @JoinColumn(name = "id_prenotazione"),
+			inverseJoinColumns = @JoinColumn(name = "id_cliente"))
+	private List<Cliente> clienti;
 }
