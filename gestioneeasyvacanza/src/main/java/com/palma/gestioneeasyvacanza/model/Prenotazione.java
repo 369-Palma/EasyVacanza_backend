@@ -17,6 +17,8 @@ import lombok.*;
 public class Prenotazione {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long id;
+	@Column(unique = true)
 	private Long numeroprenotazione;
 	@Column(nullable = false)
 	private LocalDate dataprenotazione;

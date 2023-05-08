@@ -1,0 +1,21 @@
+package com.palma.gestioneeasyvacanza.repository;
+
+import java.util.List;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.stereotype.Repository;
+
+import com.palma.gestioneeasyvacanza.model.Cliente;
+
+@Repository
+public interface UtenteRepository extends JpaRepository<Cliente, Long>{
+
+	public boolean existsByEmail(String email);
+	
+	@Query(value="SELECT c FROM Cliente c ORDER BY RANDOM() LIMIT 1")
+	Cliente findByClienteRandom();
+	
+	@Query(value = "SELECT c FROM Cliente c JOIN c.prenotazioni p WHERE p.clienti filtrati per codice di prenotazione = :numeroPrenotazione")
+	Cliente filtraPerNumeroPrenotazione(Long numeroPrenotazione);
+}
