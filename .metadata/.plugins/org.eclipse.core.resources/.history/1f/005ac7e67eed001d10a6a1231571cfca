@@ -1,0 +1,9 @@
+package com.palma.gestioneeasyvacanza.model;
+
+public enum TipoAlloggio {
+	HOTEL,
+	BUNGALOW,
+	TENDA,
+	CAMPEGGIO_ATTREZZATO,
+	APPARTAMENTO;
+}

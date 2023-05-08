@@ -1,0 +1,36 @@
+package com.palma.gestioneeasyvacanza.model;
+
+import java.time.LocalDate;
+import java.util.List;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
+import jakarta.persistence.Entity;
+import jakarta.persistence.Table;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
+
+@NoArgsConstructor
+@AllArgsConstructor
+@Getter
+@Setter
+@ToString
+@Builder
+
+@Entity
+@Table(name="vacanze")
+public class Vacanza {
+	private String luogo;
+	private Integer durata;
+	private LocalDate datainizio;
+	private LocalDate datafine;
+	private TipoAlloggio alloggio;
+	private Preferenze preferenze;
+	private Double prezzo;
+	private List <Attivita> attivita;
+	
+}

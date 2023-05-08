@@ -1,0 +1,8 @@
+package com.palma.gestioneeasyvacanza.model;
+
+public enum Difficolta {
+	FACILE,
+	MODERATO,
+	AVANZATO;
+	
+}
