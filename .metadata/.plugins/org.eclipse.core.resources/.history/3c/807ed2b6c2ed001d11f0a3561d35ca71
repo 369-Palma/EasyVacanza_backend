@@ -21,7 +21,7 @@ public class ClienteConfiguration {
 				.nome(fake.name().firstName())
 				.cognome(fake.name().lastName())
 				.email(fake.internet().emailAddress())
-				.age(fake.number().numberBetween(18, 99))
+				.age(fake.number().numberBetween(1, 99))
 				.build();
 	}		
 	

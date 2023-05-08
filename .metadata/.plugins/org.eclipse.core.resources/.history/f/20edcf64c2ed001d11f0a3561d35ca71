@@ -14,14 +14,10 @@ import com.palma.gestioneeasyvacanza.auth.entity.Role;
 import com.palma.gestioneeasyvacanza.auth.repository.RoleRepository;
 import com.palma.gestioneeasyvacanza.auth.repository.UserRepository;
 import com.palma.gestioneeasyvacanza.auth.service.AuthService;
-import com.palma.gestioneeasyvacanza.service.ClienteService;
 
 @Component
 public class EasyVacanzaRunner implements ApplicationRunner {
 
-	@Autowired ClienteService clienteService;
-	
-	
 	@Autowired
 	RoleRepository roleRepository;
 
@@ -46,19 +42,9 @@ public class EasyVacanzaRunner implements ApplicationRunner {
 		//setRoleDefault();
 		
 		//REGISTRARSI QUI TRAMITE ENDPOINT
-		//POPOLA IL DB
-		//starterDB();
-
 	}
 	
-	private void starterDB() {
-
-		for (int i = 0; i<10; i++) {
-			clienteService.createClienteRandom();
-		}
-	}
-		
-		
+	
 	private void setRoleDefault() {
 		Role admin = new Role();
 		admin.setRoleName(ERole.ROLE_ADMIN);

@@ -47,7 +47,7 @@ public class EasyVacanzaRunner implements ApplicationRunner {
 		
 		//REGISTRARSI QUI TRAMITE ENDPOINT
 		//POPOLA IL DB
-		//starterDB();
+		starterDB();
 
 	}
 	

@@ -46,19 +46,13 @@ public class EasyVacanzaRunner implements ApplicationRunner {
 		//setRoleDefault();
 		
 		//REGISTRARSI QUI TRAMITE ENDPOINT
-		//POPOLA IL DB
-		//starterDB();
-
-	}
-	
-	private void starterDB() {
-
+		
 		for (int i = 0; i<10; i++) {
-			clienteService.createClienteRandom();
+			clientService.createClienteRandom();
 		}
 	}
-		
-		
+	
+	
 	private void setRoleDefault() {
 		Role admin = new Role();
 		admin.setRoleName(ERole.ROLE_ADMIN);
