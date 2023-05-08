@@ -6,11 +6,19 @@
 		<item key="wholeword" value="false"/>
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
-		<item key="selection" value="com.palma.gestioneeasyvacanza"/>
+		<item key="selection" value="TipologiaLuogo"/>
 		<list key="findhistory">
+			<item value="Tipologia"/>
+			<item value="Difficolta"/>
+			<item value="StatoPrenotazione"/>
 			<item value="com.epicbe.gestioneenergia"/>
 		</list>
 		<list key="replacehistory">
+			<item value="TipologiaLuogo"/>
+			<item value="Tipologia"/>
+			<item value="Difficolta"/>
+			<item value="TipoAlloggio"/>
+			<item value="Preferenze"/>
 			<item value="com.palma.gestioneeasyvacanza"/>
 		</list>
 	</section>

@@ -5,8 +5,6 @@ import java.util.List;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.palma.gestioneeasyvacanza.auth.entity.User;
 
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -19,12 +17,19 @@ import lombok.*;
 
 @Entity
 @Table(name="clienti")
-public class Cliente extends User {
+public class Cliente {
 	@Id 
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	private Integer age;
 	
+	@Column(nullable = false)
+	private String nome;
+	@Column(nullable = false)
+	private String cognome;
+	@Column(nullable = false)
+	private String email;
+	@Column(nullable = false)
+	private Integer age;
 	@ManyToMany(mappedBy = "clienti", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
 	@JsonIgnoreProperties({"cliente"})
 	private List<Prenotazione> prenotazioni;

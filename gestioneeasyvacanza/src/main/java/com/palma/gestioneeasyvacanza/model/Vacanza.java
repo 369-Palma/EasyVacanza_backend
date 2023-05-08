@@ -19,6 +19,7 @@ import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
+import lombok.Data;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -26,9 +27,7 @@ import lombok.ToString;
 
 @NoArgsConstructor
 @AllArgsConstructor
-@Getter
-@Setter
-@ToString
+@Data
 @Builder
 
 @Entity
@@ -38,13 +37,15 @@ public class Vacanza {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	@Column(nullable = false)
-	private String city;
+	private String citta;
 	@Column(nullable = false)
 	private String nazione;
 	@Column(nullable = false)
 	private String indirizzo;
 	@Column(nullable = false)
 	private String descrizione;
+	@Column(nullable = false)
+	private String immagineurl;
 	@Column(nullable = false)
 	@Enumerated(EnumType.STRING)
 	private TipologiaLuogo tipologia;
