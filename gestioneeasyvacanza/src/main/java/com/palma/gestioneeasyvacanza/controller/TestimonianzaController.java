@@ -18,7 +18,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.palma.gestioneeasyvacanza.model.Testimonianza;
-import com.palma.gestioneeasyvacanza.model.Difficolta;
 import com.palma.gestioneeasyvacanza.service.TestimonianzaService;
 
 @RestController
