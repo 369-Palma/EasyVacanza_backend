@@ -50,13 +50,13 @@ public class ClienteService {
 			return repo.findByClienteRandom();
 		}
 		
-		public Cliente createCliente(Cliente cliente) {
-			if(repo.existsByEmail(cliente.getEmail())) {
+		public Cliente createCliente(Cliente Cliente) {
+			if(repo.existsByEmail(Cliente.getEmail())) {
 				throw new EntityExistsException("Partita iva exists!!!");
 			} else {
-				repo.save(cliente);
+				repo.save(Cliente);
 			}		
-			return cliente;
+			return Cliente;
 		}
 		
 		public String removeCliente(Long id) {
@@ -67,12 +67,12 @@ public class ClienteService {
 			return "Cliente Deleted!!!";
 		}
 		
-		public Cliente updateCliente(Cliente cliente) {
-			if(!repo.existsById(cliente.getId())) {
+		public Cliente updateCliente(Cliente Cliente) {
+			if(!repo.existsById(Cliente.getId())) {
 				throw new EntityExistsException("Cliente not exists!!!");
 			}
-			repo.save(cliente);
-			return cliente;
+			repo.save(Cliente);
+			return Cliente;
 		}
 		
 		//METODI SPECIALI

@@ -1,0 +1,14 @@
+package com.palma.gestioneeasyvacanza.repository;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
+
+import com.palma.gestioneeasyvacanza.model.Attivita;
+import com.palma.gestioneeasyvacanza.model.Testimonianza;
+
+@Repository
+public interface TestimonianzaRepository extends JpaRepository<Testimonianza, Long> {
+	Testimonianza findByTestimonianzaRandom();
+	
+	public boolean existsByEmail(String email);
+}

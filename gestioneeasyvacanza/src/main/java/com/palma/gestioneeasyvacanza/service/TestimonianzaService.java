@@ -1,0 +1,85 @@
+package com.palma.gestioneeasyvacanza.service;
+
+import java.util.List;
+
+import org.springframework.beans.factory.ObjectProvider;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.stereotype.Service;
+
+import com.palma.gestioneeasyvacanza.model.Testimonianza;
+import com.palma.gestioneeasyvacanza.repository.TestimonianzaRepository;
+
+import jakarta.persistence.EntityExistsException;
+import jakarta.persistence.EntityNotFoundException;
+
+@Service
+public class TestimonianzaService {
+
+	@Autowired TestimonianzaRepository repo;
+	@Autowired @Qualifier("TestimRandom") private ObjectProvider<Testimonianza> randomTestprovider;
+	
+	// Per creare una nuova testimonianza
+	
+			public void createTestimonianzaRandom() {		
+			 createTestimonianza(randomTestprovider.getObject());
+			}
+			
+			//METODI STANDARD PER API
+			
+			public List<Testimonianza> getAllTestimonianza() {
+				return (List<Testimonianza>) repo.findAll();
+			}
+			
+			public Page<Testimonianza> getAllTestimonianzaPageable(Pageable pageable) {
+				return (Page<Testimonianza>) repo.findAll(pageable);
+			}
+			
+			
+			public Testimonianza getTestimonianza(Long id) {
+				if(!repo.existsById(id)) {
+					throw new EntityNotFoundException("La testimonianza con id " + id + " non è presente del database!!!");
+				}
+				return repo.findById(id).get();
+			}
+			
+			public Testimonianza getTestimonianzaRandom() {
+				return repo.findByTestimonianzaRandom();
+			}
+			
+			public Testimonianza createTestimonianza(Testimonianza testimonianza) {
+				if(repo.existsById(testimonianza.getId())) {
+					throw new EntityExistsException(" " );
+				} else {
+					repo.save(testimonianza);
+				}		
+				return testimonianza;
+			}
+			
+			public String removeTestimonianza(Long id) {
+				if(!repo.existsById(id)) {
+					throw new EntityExistsException("La testimonianza con id " + id + " non è presente del database!");
+				}
+				repo.deleteById(id);
+				return "Testimonianza Deleted!!!";
+			}
+			
+			public Testimonianza updateTestimonianza(Testimonianza testimonianza) {
+				if(!repo.existsById(testimonianza.getId())) {
+					throw new EntityExistsException("La testimonianza non è presente del database!");
+				}
+				repo.save(testimonianza);
+				return testimonianza;
+			}
+			
+			//Metodi speciali
+			
+			public Page<Testimonianza> getByRate(Integer rating, Pageable pag){
+				if(!repo.existsByRating(rating)) {
+					throw new EntityExistsException("Non sono presenti risultati con rating " + rating);
+				}
+				return repo.findByRating(rating, pag);
+			}
+}
