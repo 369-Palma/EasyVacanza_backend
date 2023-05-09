@@ -1,0 +1,13 @@
+package com.palma.gestioneeasyvacanza.model;
+
+public enum TipoAttivita {
+	Escursione,
+	Arrampicata,
+	Esplorazione,
+	Cannottaggio,
+	Degustazione;
+	
+	
+	public static TipoAttivita 
+	
+}

@@ -9,7 +9,7 @@ public enum Difficolta {
 	MODERATO,
 	AVANZATO;
 	
-	public static Difficolta StatoRandom() {
+	public static Difficolta DifficoltaRandom() {
 		Faker fake = new Faker(new Locale("it-IT"));
 		int size = Difficolta.values().length;
 		int position = fake.number().numberBetween(0, size);

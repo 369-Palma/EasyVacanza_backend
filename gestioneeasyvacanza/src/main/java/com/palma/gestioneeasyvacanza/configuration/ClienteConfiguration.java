@@ -22,6 +22,8 @@ public class ClienteConfiguration {
 				.cognome(fake.name().lastName())
 				.email(fake.internet().emailAddress())
 				.age(fake.number().numberBetween(18, 99))
+				//.prenotazioni(prenotazioneService.getPrenotazioneRandom())
+				//.testimonianze(testimonianzaService.getTestimonianzaRandom())
 				.build();
 	}		
 	

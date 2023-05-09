@@ -1,0 +1,27 @@
+package com.palma.gestioneeasyvacanza.configuration;
+
+import java.util.Locale;
+
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Scope;
+
+import com.github.javafaker.Faker;
+import com.palma.gestioneeasyvacanza.model.Attivita;
+import com.palma.gestioneeasyvacanza.model.Difficolta;
+
+@Configuration
+public class AttivitaConfiguration {
+
+	@Bean("AttivitaRandom")
+	@Scope("prototype")
+	public Attivita AttivitaRandom() {
+		Faker fake = new Faker(new Locale("it-IT"));
+		return Attivita.builder()
+				.descrizione(fake.lorem().sentence(2))
+				.rating(fake.number().numberBetween(1,5))
+				.difficolta(Difficolta.DifficoltaRandom())
+				.build();
+	}
+	
+}

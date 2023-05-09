@@ -1,0 +1,9 @@
+package com.palma.gestioneeasyvacanza.repository;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import com.palma.gestioneeasyvacanza.model.Attivita;
+
+public interface AttivitaRepository extends JpaRepository<Attivita, Long> {
+
+}

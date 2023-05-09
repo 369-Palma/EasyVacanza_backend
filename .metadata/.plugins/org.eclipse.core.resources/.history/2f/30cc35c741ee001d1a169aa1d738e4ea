@@ -1,0 +1,8 @@
+package com.palma.gestioneeasyvacanza.configuration;
+
+import org.springframework.context.annotation.Configuration;
+
+@Configuration
+public class AttivitaConfiguration {
+
+}

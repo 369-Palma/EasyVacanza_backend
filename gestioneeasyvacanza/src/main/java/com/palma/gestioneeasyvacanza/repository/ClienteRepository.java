@@ -16,6 +16,7 @@ public interface ClienteRepository extends JpaRepository<Cliente, Long>{
 	@Query(value="SELECT c FROM Cliente c ORDER BY RANDOM() LIMIT 1")
 	Cliente findByClienteRandom();
 	
+	//FILTRO PER NUMERO DI PRENOTAZIONE
 	@Query(value = "SELECT c FROM Cliente c JOIN c.prenotazioni p WHERE p.numeroprenotazione = :numeroPrenotazione")
 	Cliente filtraPerNumeroPrenotazione(@Param("numeroPrenotazione") Long numeroPrenotazione);
 
