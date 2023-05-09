@@ -22,7 +22,7 @@ public class AttivitaConfiguration {
 				.descrizione("Imperdibile" + TipoAttivita.TipoAttivitaRandom()  + ". Livello di difficoltà: " + Difficolta.DifficoltaRandom())
 				.difficolta(Difficolta.DifficoltaRandom())
 //				.Vacanza((vacanzaService.getVacanzaRandom())
-//				.Testimonianza(testimonianzaService.getTestimonianzaRandom())
+				.Testimonianza(testimonianzaService.getTestimonianzaRandom())
 				.build();
 	}
 	
