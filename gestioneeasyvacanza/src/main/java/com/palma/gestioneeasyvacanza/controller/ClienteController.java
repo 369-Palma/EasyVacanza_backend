@@ -21,7 +21,7 @@ import com.palma.gestioneeasyvacanza.model.Cliente;
 import com.palma.gestioneeasyvacanza.service.ClienteService;
 
 @RestController
-@RequestMapping("/api")
+@RequestMapping("/api/cliente")
 public class ClienteController {
 
 	@Autowired ClienteService service;
@@ -46,8 +46,8 @@ public class ClienteController {
 		
 	@PostMapping
 	@PreAuthorize("hasRole('ADMIN')")
-	public ResponseEntity<?> createCliente(@RequestBody Cliente Cliente) {
-		return new ResponseEntity<Cliente>(service.createCliente(Cliente), HttpStatus.CREATED);
+	public ResponseEntity<?> createCliente(@RequestBody Cliente cliente) {
+		return new ResponseEntity<Cliente>(service.createCliente(cliente), HttpStatus.CREATED);
 	}
 	@DeleteMapping("/{id}")
 	@PreAuthorize("hasRole('ADMIN')")
@@ -56,7 +56,7 @@ public class ClienteController {
 	}
 	@PutMapping
 	@PreAuthorize("hasRole('ADMIN')")
-	public ResponseEntity<?> updateUser(@RequestBody Cliente Cliente) {
-		return new ResponseEntity<Cliente>(service.updateCliente(Cliente), HttpStatus.CREATED);
+	public ResponseEntity<?> updateUser(@RequestBody Cliente cliente) {
+		return new ResponseEntity<Cliente>(service.updateCliente(cliente), HttpStatus.CREATED);
 	}
 }

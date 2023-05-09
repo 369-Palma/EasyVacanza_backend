@@ -1,0 +1,19 @@
+package com.palma.gestioneeasyvacanza.repository;
+
+import java.awt.print.Pageable;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
+
+import com.palma.gestioneeasyvacanza.model.Attivita;
+import com.palma.gestioneeasyvacanza.model.Difficolta;
+
+public interface AttivitaRepository extends JpaRepository<Attivita, Long> {
+
+	@Query(value="SELECT a FROM Attivita c ORDER BY RANDOM() LIMIT 1")
+	Attivita findByAttivitaRandom();
+	
+	public boolean existsByDifficolta(Difficolta difficolta);
+	
+	public <Page>Attivita findByDifficolta(Difficolta difficolta, Pageable pag);
+}

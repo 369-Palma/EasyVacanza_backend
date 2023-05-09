@@ -1,0 +1,13 @@
+package com.palma.gestioneeasyvacanza.service;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.palma.gestioneeasyvacanza.repository.AttivitaRepository;
+
+@Service
+public class AttivitaService {
+
+	@Autowired AttivitaRepository repo;
+	
+}

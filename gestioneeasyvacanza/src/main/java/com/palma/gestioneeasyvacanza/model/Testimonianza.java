@@ -37,7 +37,8 @@ public class Testimonianza {
 	private String surname;
 	@Column(nullable = false)
 	private String feedback;
-	
+	@Column(nullable = false)
+	private Integer rating;
 	@ManyToOne
 	@JsonIgnoreProperties({"testimonianze"})
 	private Attivita attivita;
