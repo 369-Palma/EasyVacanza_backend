@@ -1,0 +1,14 @@
+package com.palma.gestioneeasyvacanza.service;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.palma.gestioneeasyvacanza.repository.TestimonianzaRepository;
+
+@Service
+public class TestimonianzaService {
+
+	@Autowired TestimonianzaRepository repo;
+	
+	
+}

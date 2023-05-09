@@ -33,7 +33,6 @@ public class Testimonianza {
 	@Id 
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	@Column(nullable = false)
 	private String nome;
 	private String cognome;
 	@Column(nullable = false)

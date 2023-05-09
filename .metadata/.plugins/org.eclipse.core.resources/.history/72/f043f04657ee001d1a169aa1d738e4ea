@@ -1,0 +1,18 @@
+package com.palma.gestioneeasyvacanza.service;
+
+import org.springframework.beans.factory.ObjectProvider;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.stereotype.Service;
+
+import com.palma.gestioneeasyvacanza.model.Testimonianza;
+import com.palma.gestioneeasyvacanza.repository.TestimonianzaRepository;
+
+@Service
+public class TestimonianzaService {
+
+	@Autowired TestimonianzaRepository repo;
+	@Autowired @Qualifier("TestimRandom") private ObjectProvider<Testimonianza> randomTestprovider;
+	
+	
+}

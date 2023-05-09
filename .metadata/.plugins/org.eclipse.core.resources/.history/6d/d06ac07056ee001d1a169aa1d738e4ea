@@ -1,0 +1,7 @@
+package com.palma.gestioneeasyvacanza.repository;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface TestimonianzaRepository extends JpaRepository<T, ID> {
+
+}

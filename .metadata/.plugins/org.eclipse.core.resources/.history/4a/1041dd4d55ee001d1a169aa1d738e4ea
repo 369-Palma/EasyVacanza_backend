@@ -1,0 +1,20 @@
+package com.palma.gestioneeasyvacanza.configuration;
+
+import java.util.Locale;
+
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Scope;
+
+import com.palma.gestioneeasyvacanza.model.Testimonianza;
+import com.
+github.javafaker.Faker;
+@Configuration
+public class TestimonianzaConfiguration {
+
+	@Bean("TestimRandom")
+	@Scope("prototype")
+	public Testimonianza randomTest() {
+		Faker fake = new Faker(new Locale("it-IT"));
+	}
+}
