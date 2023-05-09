@@ -36,7 +36,6 @@ public class AttivitaService {
 				return (Page<Attivita>) repo.findAll(pageable);
 			}
 			
-			
 			public Attivita getAttivita(Long id) {
 				if(!repo.existsById(id)) {
 					throw new EntityNotFoundException("Attivita not exists!!!");

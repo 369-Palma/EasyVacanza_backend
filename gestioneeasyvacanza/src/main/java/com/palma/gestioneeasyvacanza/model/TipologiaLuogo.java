@@ -11,7 +11,7 @@ public enum TipologiaLuogo {
 	CAMPAGNA,
 	METROPOLI;
 	
-	public static TipologiaLuogo StatoRandom() {
+	public static TipologiaLuogo TipoLuogoRandom() {
 		Faker fake = new Faker(new Locale("it-IT"));
 		int size = TipologiaLuogo.values().length;
 		int position = fake.number().numberBetween(0, size);

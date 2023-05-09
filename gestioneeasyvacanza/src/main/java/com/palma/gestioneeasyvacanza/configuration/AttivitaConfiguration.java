@@ -21,8 +21,8 @@ public class AttivitaConfiguration {
 		return Attivita.builder()
 				.descrizione("Imperdibile" + TipoAttivita.TipoAttivitaRandom()  + ". Livello di difficoltà: " + Difficolta.DifficoltaRandom())
 				.difficolta(Difficolta.DifficoltaRandom())
-//				.Vacanza((vacanzaService.getVacanzaRandom())
-//				.Testimonianza(testimonianzaService.getTestimonianzaRandom())
+//				.vacanza((vacanzaService.getVacanzaRandom())
+//				.testimonianza(testimonianzaService.getTestimonianzaRandom())
 				.build();
 	}
 	

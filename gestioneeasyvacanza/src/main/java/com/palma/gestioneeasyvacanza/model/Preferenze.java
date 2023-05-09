@@ -9,7 +9,7 @@ public enum Preferenze {
 	PET_FIRNDLY,
 	FAMIGLIE;
 	
-	public static Preferenze StatoRandom() {
+	public static Preferenze PreferenzaRandom() {
 		Faker fake = new Faker(new Locale("it-IT"));
 		int size = Preferenze.values().length;
 		int position = fake.number().numberBetween(0, size);
