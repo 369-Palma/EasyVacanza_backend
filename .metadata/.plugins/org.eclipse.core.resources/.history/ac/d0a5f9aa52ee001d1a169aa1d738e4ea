@@ -17,7 +17,6 @@ public interface AttivitaRepository extends JpaRepository<Attivita, Long> {
 	Attivita findByAttivitaRandom();
 	
 	public boolean existsByDifficolta(Difficolta difficolta);
-	public boolean existsByDescrizione(String descrizione);
 	
 	//FILTRO PER LIVELLO DI FIFFICOLTA'
 	public Page<Attivita> findByDifficolta(Difficolta difficolta, Pageable pag);
