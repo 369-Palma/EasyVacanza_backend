@@ -18,6 +18,7 @@ import com.palma.gestioneeasyvacanza.model.TipoAlloggio;
 import com.palma.gestioneeasyvacanza.model.TipologiaLuogo;
 import com.palma.gestioneeasyvacanza.model.Vacanza;
 import com.palma.gestioneeasyvacanza.service.AttivitaService;
+import com.palma.gestioneeasyvacanza.service.PrenotazioneService;
 
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
@@ -27,7 +28,7 @@ import okhttp3.Response;
 public class VacanzaCofiguration {
 
 	@Autowired AttivitaService attivitaService;
-	//@Autowired PrenotazioneService prenotazioneService;
+	@Autowired PrenotazioneService prenotazioneService;
 	@Bean("VacanzaRandom")
 	@Scope("prototype")
 	
@@ -60,7 +61,7 @@ public class VacanzaCofiguration {
 				.preferenza(Preferenze.PreferenzaRandom())
 				.prezzo(price)
 				.attivita((List<Attivita>) attivitaService.getAttivitaRandom())
-				//.attivita(prenotazioneService.getPrenotazioneRandom())
+				.attivita(null)
 				.build();
 	}
 }

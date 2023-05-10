@@ -16,12 +16,18 @@ import com.palma.gestioneeasyvacanza.auth.repository.UserRepository;
 import com.palma.gestioneeasyvacanza.auth.service.AuthService;
 import com.palma.gestioneeasyvacanza.service.AttivitaService;
 import com.palma.gestioneeasyvacanza.service.ClienteService;
+import com.palma.gestioneeasyvacanza.service.VacanzaService;
+import com.palma.gestioneeasyvacanza.service.PrenotazioneService;
+import com.palma.gestioneeasyvacanza.service.TestimonianzaService;
 
 @Component
 public class EasyVacanzaRunner implements ApplicationRunner {
 
 	@Autowired ClienteService clienteService;
 	@Autowired AttivitaService attivitaService;
+	@Autowired VacanzaService vacanzaService;
+	@Autowired PrenotazioneService prenotazioneService;
+	@Autowired TestimonianzaService testimonianzaService;
 	
 	@Autowired
 	RoleRepository roleRepository;
@@ -63,6 +69,21 @@ public class EasyVacanzaRunner implements ApplicationRunner {
 		//genera CLIENTE
 		for (int i = 0; i<10; i++) {
 			clienteService.createClienteRandom();
+		}
+		
+		//genera VACANZA
+		for (int i = 0; i<20; i++) {
+			vacanzaService.createVacanzaRandom();
+		}
+		
+		//genera TESTIMONIANZA
+		for (int i = 0; i<30; i++) {
+			testimonianzaService.createTestimonianzaRandom();
+		}
+		
+		//genera PRENOTAZIONE
+		for (int i = 0; i<20; i++) {
+			prenotazioneService.createPrenotazioneRandom();
 		}
 	}
 		
