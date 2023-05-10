@@ -30,8 +30,10 @@ public class ClienteConfiguration {
 				.cognome(fake.name().lastName())
 				.email(fake.internet().emailAddress())
 				.age(fake.number().numberBetween(18, 99))
-				.prenotazioni((List<Prenotazione>) prenotazioneService.getPrenotazioneRandom())
-				.testimonianze((List<Testimonianza>) testimonianzaService.getTestimonianzaRandom())
+				//.prenotazioni((List<Prenotazione>) prenotazioneService.getPrenotazioneRandom())
+				//.testimonianze((List<Testimonianza>) testimonianzaService.getTestimonianzaRandom())
+				.prenotazioni(null)
+				.testimonianze(null)
 				.build();
 	}		
 	

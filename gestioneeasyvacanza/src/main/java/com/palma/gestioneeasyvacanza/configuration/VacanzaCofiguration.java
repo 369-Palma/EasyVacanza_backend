@@ -12,7 +12,6 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Scope;
 
 import com.github.javafaker.Faker;
-import com.palma.gestioneeasyvacanza.model.Attivita;
 import com.palma.gestioneeasyvacanza.model.Preferenze;
 import com.palma.gestioneeasyvacanza.model.TipoAlloggio;
 import com.palma.gestioneeasyvacanza.model.TipologiaLuogo;
@@ -23,6 +22,8 @@ import com.palma.gestioneeasyvacanza.service.PrenotazioneService;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
+import org.json.JSONArray;
+import org.json.JSONObject;
 
 @Configuration
 public class VacanzaCofiguration {
@@ -46,22 +47,25 @@ public class VacanzaCofiguration {
 	                    .build();
 	            Response response = client.newCall(request).execute();
 	            String imageUrl = response.request().url().toString();
-	    
+	    //per descrizione
+	            String durata = fake.number().numberBetween(3, 10) + " giorni";
+	            String nazione = fake.country().name();
 		return Vacanza.builder()
 				.citta(fake.country().capital())
 				.nazione(fake.country().name())
 				.indirizzo(fake.address().city())
-				.descrizione(null)
+				.descrizione(durata + " da sogno in " + nazione + "." )
 				.immagineurl(imageUrl)
 				.tipoluogo(TipologiaLuogo.TipoLuogoRandom())
-				.duratagiorni(fake.number().numberBetween(3, 10) + " giorni")
+				.duratagiorni(durata)
 				.datainizio(LocalDate.of(fake.number().numberBetween(2021, 2022),fake.number().numberBetween(1, 12), fake.number().numberBetween(1, 28)))
 				.datafine(LocalDate.of(fake.number().numberBetween(2021, 2022),fake.number().numberBetween(1, 12), fake.number().numberBetween(1, 28)))
 				.alloggio(TipoAlloggio.AlloggioRandom())
 				.preferenza(Preferenze.PreferenzaRandom())
 				.prezzo(price)
-				.attivita((List<Attivita>) attivitaService.getAttivitaRandom())
+				//.attivita((List<Attivita>) attivitaService.getAttivitaRandom())
 				.attivita(null)
+				.prenotazione(null)
 				.build();
 	}
 }

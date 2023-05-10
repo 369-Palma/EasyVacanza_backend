@@ -31,7 +31,8 @@ public class PrenotazioneConfiguration {
 				.numerospiti(fake.number().numberBetween(1, 20))
 				.stato(StatoPrenotazione.StatoRandom())
 				.vacanza(vacanzaService.getVacanzaRandom())
-				.clienti((List<Cliente>) clienteService.getClienteRandom())
+				//.clienti((List<Cliente>) clienteService.getClienteRandom())
+				.clienti(null)
 				.build();
 	}
 	

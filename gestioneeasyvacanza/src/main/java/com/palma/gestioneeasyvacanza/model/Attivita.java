@@ -40,9 +40,9 @@ public class Attivita {
 	private Difficolta difficolta;
 	
 	@ManyToMany
-	private List <Vacanza> vacanze;
+	private List<Vacanza> vacanze;
 	
 	@OneToMany(mappedBy = "attivita", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
 	@JsonIgnoreProperties({"attivita"})
-	private List <Testimonianza> testimonianze;
+	private List<Testimonianza> testimonianze;
 }

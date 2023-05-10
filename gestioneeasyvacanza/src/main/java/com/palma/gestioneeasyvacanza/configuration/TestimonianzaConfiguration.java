@@ -28,8 +28,10 @@ public class TestimonianzaConfiguration {
 				.email(fake.internet().emailAddress())
 				.feedback(fake.lorem().paragraph(2))
 				.rating(fake.number().numberBetween(0, 5))
-				.attivita(attivitaServ.getAttivitaRandom())
-				.cliente(clienteService.getClienteRandom())
+//				.attivita(attivitaServ.getAttivitaRandom())
+//				.cliente(clienteService.getClienteRandom())
+				.attivita(null)
+				.cliente(null)
 				.build();
 	}
 }
