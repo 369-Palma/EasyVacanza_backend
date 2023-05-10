@@ -44,7 +44,7 @@ public class Vacanza {
 	private String indirizzo;
 	@Column(nullable = false)
 	private String descrizione;
-	@Column(nullable = false)
+	@Column(nullable = false, columnDefinition = "TEXT")
 	private String immagineurl;
 	@Column(nullable = false)
 	@Enumerated(EnumType.STRING)
@@ -56,8 +56,10 @@ public class Vacanza {
 	@Column(nullable = false)
 	private LocalDate datafine;
 	@Column(nullable = false)
+	@Enumerated(EnumType.STRING)
 	private TipoAlloggio alloggio;
 	@Column(nullable = false)
+	@Enumerated(EnumType.STRING)
 	private Preferenze preferenza;
 	@Column(nullable = false)
 	private Double prezzo;

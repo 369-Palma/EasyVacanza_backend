@@ -8,6 +8,7 @@ import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
+import com.palma.gestioneeasyvacanza.model.Prenotazione;
 
 import com.palma.gestioneeasyvacanza.auth.entity.ERole;
 import com.palma.gestioneeasyvacanza.auth.entity.Role;
@@ -16,12 +17,18 @@ import com.palma.gestioneeasyvacanza.auth.repository.UserRepository;
 import com.palma.gestioneeasyvacanza.auth.service.AuthService;
 import com.palma.gestioneeasyvacanza.service.AttivitaService;
 import com.palma.gestioneeasyvacanza.service.ClienteService;
+import com.palma.gestioneeasyvacanza.service.VacanzaService;
+import com.palma.gestioneeasyvacanza.service.PrenotazioneService;
+import com.palma.gestioneeasyvacanza.service.TestimonianzaService;
 
 @Component
 public class EasyVacanzaRunner implements ApplicationRunner {
 
 	@Autowired ClienteService clienteService;
 	@Autowired AttivitaService attivitaService;
+	@Autowired VacanzaService vacanzaService;
+	@Autowired PrenotazioneService prenotazioneService;
+	@Autowired TestimonianzaService testimonianzaService;
 	
 	@Autowired
 	RoleRepository roleRepository;
@@ -50,7 +57,7 @@ public class EasyVacanzaRunner implements ApplicationRunner {
 		//REGISTRARSI QUI TRAMITE ENDPOINT
 		//POPOLA IL DB
 		//starterDB();
-//		
+		
 	}
 	
 	private void starterDB() {
@@ -61,11 +68,28 @@ public class EasyVacanzaRunner implements ApplicationRunner {
 		}
 		
 		//genera CLIENTE
-		for (int i = 0; i<10; i++) {
-			clienteService.createClienteRandom();
+		for (int i = 0; i<20; i++) {
+		clienteService.createClienteRandom();
 		}
+	
+		//genera TESTIMONIANZA
+		for (int i = 0; i<30; i++) {
+			testimonianzaService.createTestimonianzaRandom();
+		}
+			
+		//genera VACANZA
+		for (int i = 0; i<20; i++) {
+			vacanzaService.createVacanzaRandom();
+		}
+		
+		//genera PRENOTAZIONE
+		for (int i = 0; i<10; i++) {
+			prenotazioneService.createPrenotazioneRandom();
+		}
+
 	}
 		
+	Prenotazione p = new Prenotazione();
 		
 	private void setRoleDefault() {
 		Role admin = new Role();

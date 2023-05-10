@@ -50,7 +50,7 @@ public class PrenotazioneService {
 	}
 	
 	public Prenotazione createPrenotazione(Prenotazione prenotazione) {
-		if(repo.existsByNumeroprenotazione(prenotazione.getNumeroprenotazione())) {
+		if(prenotazione.getId() != null && repo.existsByNumeroprenotazione(prenotazione.getNumeroprenotazione())) {
 			throw new EntityExistsException(" " );
 		} else {
 			repo.save(prenotazione);

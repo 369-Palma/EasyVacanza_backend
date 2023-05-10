@@ -1,6 +1,7 @@
 package com.palma.gestioneeasyvacanza.configuration;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 
@@ -11,6 +12,7 @@ import org.springframework.context.annotation.Scope;
 
 import com.github.javafaker.Faker;
 import com.palma.gestioneeasyvacanza.model.Cliente;
+import com.palma.gestioneeasyvacanza.model.Vacanza;
 import com.palma.gestioneeasyvacanza.model.Prenotazione;
 import com.palma.gestioneeasyvacanza.model.StatoPrenotazione;
 import com.palma.gestioneeasyvacanza.service.ClienteService;
@@ -23,15 +25,18 @@ public class PrenotazioneConfiguration {
 	@Autowired VacanzaService vacanzaService;
 	@Bean("PrenotazioneRandom")
 	@Scope("prototype")
-	public Prenotazione PrenotazioneRandom() {
+	public Prenotazione PrenotazioneRandom() {			
+		
 		Faker fake = new Faker(new Locale("it-IT"));
+		List<Cliente> list = new ArrayList<>();
+        list.add(clienteService.getClienteRandom());
 		return Prenotazione.builder()
 				.numeroprenotazione(fake.number().numberBetween(0000000000l, 9999999999l))
 				.dataprenotazione(LocalDate.of(fake.number().numberBetween(2022, 2023),fake.number().numberBetween(1, 12), fake.number().numberBetween(1, 28)))
 				.numerospiti(fake.number().numberBetween(1, 20))
 				.stato(StatoPrenotazione.StatoRandom())
 				.vacanza(vacanzaService.getVacanzaRandom())
-				.clienti((List<Cliente>) clienteService.getClienteRandom())
+				.clienti(list)
 				.build();
 	}
 	

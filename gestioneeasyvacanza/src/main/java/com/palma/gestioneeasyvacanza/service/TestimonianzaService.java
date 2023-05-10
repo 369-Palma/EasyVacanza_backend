@@ -37,7 +37,6 @@ public class TestimonianzaService {
 				return (Page<Testimonianza>) repo.findAll(pageable);
 			}
 			
-			
 			public Testimonianza getTestimonianza(Long id) {
 				if(!repo.existsById(id)) {
 					throw new EntityNotFoundException("La testimonianza con id " + id + " non è presente del database!!!");
@@ -50,7 +49,7 @@ public class TestimonianzaService {
 			}
 			
 			public Testimonianza createTestimonianza(Testimonianza testimonianza) {
-				if(repo.existsById(testimonianza.getId())) {
+				if(testimonianza.getId() != null && repo.existsById(testimonianza.getId())) {
 					throw new EntityExistsException(" " );
 				} else {
 					repo.save(testimonianza);
