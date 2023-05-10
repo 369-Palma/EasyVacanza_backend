@@ -1,6 +1,7 @@
 package com.palma.gestioneeasyvacanza.configuration;
 
 import java.io.IOException;
+import java.util.List;
 import java.util.Locale;
 import java.text.DecimalFormat;
 import java.time.LocalDate;
@@ -11,6 +12,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Scope;
 
 import com.github.javafaker.Faker;
+import com.palma.gestioneeasyvacanza.model.Attivita;
 import com.palma.gestioneeasyvacanza.model.Preferenze;
 import com.palma.gestioneeasyvacanza.model.TipoAlloggio;
 import com.palma.gestioneeasyvacanza.model.TipologiaLuogo;
@@ -50,14 +52,14 @@ public class VacanzaCofiguration {
 				.indirizzo(fake.address().city())
 				.descrizione(null)
 				.immagineurl(imageUrl)
-				.tipologia(TipologiaLuogo.TipoLuogoRandom())
+				.tipoluogo(TipologiaLuogo.TipoLuogoRandom())
 				.duratagiorni(fake.number().numberBetween(3, 10) + " giorni")
 				.datainizio(LocalDate.of(fake.number().numberBetween(2021, 2022),fake.number().numberBetween(1, 12), fake.number().numberBetween(1, 28)))
 				.datafine(LocalDate.of(fake.number().numberBetween(2021, 2022),fake.number().numberBetween(1, 12), fake.number().numberBetween(1, 28)))
 				.alloggio(TipoAlloggio.AlloggioRandom())
 				.preferenza(Preferenze.PreferenzaRandom())
 				.prezzo(price)
-				.attivita(attivitaService.getAttivitaRandom())
+				.attivita((List<Attivita>) attivitaService.getAttivitaRandom())
 				//.attivita(prenotazioneService.getPrenotazioneRandom())
 				.build();
 	}

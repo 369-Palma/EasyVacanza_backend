@@ -27,9 +27,7 @@ import lombok.ToString;
 
 @NoArgsConstructor
 @AllArgsConstructor
-@Getter
-@Setter
-@ToString
+@Data
 @Builder
 
 @Entity
@@ -50,7 +48,7 @@ public class Vacanza {
 	private String immagineurl;
 	@Column(nullable = false)
 	@Enumerated(EnumType.STRING)
-	private TipologiaLuogo tipologia;
+	private TipologiaLuogo tipoluogo;
 	@Column(nullable = false)
 	private String duratagiorni;
 	@Column(nullable = false)
@@ -69,7 +67,7 @@ public class Vacanza {
      joinColumns = @JoinColumn(name = "vacanze_id", referencedColumnName = "id"),
      inverseJoinColumns = @JoinColumn(name = "attivita_id", referencedColumnName = "id")
 	)
-	private Attivita attivita;
+	private List<Attivita> attivita;
 	
 	@OneToOne(mappedBy = "vacanza")
 	private Prenotazione prenotazione;

@@ -79,10 +79,10 @@ public class VacanzaService {
 				//Metodi speciali
 				
 				public Page<Vacanza> getByLuogo(TipologiaLuogo luogo, Pageable pag){
-					if(!repo.existsByTipologia(luogo)) {
+					if(!repo.existsByTipoluogo(luogo)) {
 						throw new EntityExistsException("Non ci sono vacanze per la tipologia " + luogo);
 					}
-					return repo.FindByTipologia(luogo, pag);
+					return repo.findByTipoluogo(luogo, pag);
 				}
 				
 				public Page<Vacanza> getByAlloggio(TipoAlloggio alloggio, Pageable pag){
