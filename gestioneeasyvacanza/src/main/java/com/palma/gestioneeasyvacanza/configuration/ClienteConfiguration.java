@@ -1,7 +1,7 @@
 package com.palma.gestioneeasyvacanza.configuration;
 
-import java.util.List;
-import java.util.Locale;
+import java.util.*;
+
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -25,15 +25,18 @@ public class ClienteConfiguration {
 	@Scope("prototype")
 	public Cliente clienteRandom() {
 		Faker fake = new Faker(new Locale("it-IT"));
+		List<Prenotazione> prenotazioni = new ArrayList<>();
+		prenotazioni.add(prenotazioneService.getPrenotazioneRandom());
+		
+		List<Testimonianza> testimonianza =new ArrayList<>();
+		testimonianza.add(testimonianzaService.getTestimonianzaRandom());
 		return Cliente.builder()
 				.nome(fake.name().firstName())
 				.cognome(fake.name().lastName())
 				.email(fake.internet().emailAddress())
 				.age(fake.number().numberBetween(18, 99))
-				//.prenotazioni((List<Prenotazione>) prenotazioneService.getPrenotazioneRandom())
-				//.testimonianze((List<Testimonianza>) testimonianzaService.getTestimonianzaRandom())
-				.prenotazioni(null)
-				.testimonianze(null)
+				.prenotazioni(prenotazioni)
+				.testimonianze(testimonianza)
 				.build();
 	}		
 	

@@ -7,7 +7,6 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
-import com.palma.gestioneeasyvacanza.model.Attivita;
 import com.palma.gestioneeasyvacanza.model.Preferenze;
 import com.palma.gestioneeasyvacanza.model.TipoAlloggio;
 import com.palma.gestioneeasyvacanza.model.TipologiaLuogo;
@@ -17,15 +16,13 @@ import com.palma.gestioneeasyvacanza.model.Vacanza;
 @Repository
 public interface VacanzaRepository extends JpaRepository<Vacanza, Long> {
 
+	
 	@Query(value="SELECT v FROM Vacanza v ORDER BY RANDOM() LIMIT 1")
-	Vacanza findByVacanzaRandom();
+	Vacanza findPerVacanzaRandom();
 	
 	boolean existsByTipoluogo(TipologiaLuogo tipoluogo);
 	boolean existsByAlloggio(TipoAlloggio alloggio);
 	boolean existsByPreferenza(Preferenze preferenza);
-		
-	//filtro per tipologiaLuogo
-		//public Page<Vacanza> FindByTipoluogo(TipologiaLuogo luogo, Pageable page);	
 	
 	 @Query("SELECT v FROM Vacanza v WHERE v.tipoluogo = :luogo")
 	    Page<Vacanza> findByTipoluogo(@Param("luogo") TipologiaLuogo luogo, Pageable page);

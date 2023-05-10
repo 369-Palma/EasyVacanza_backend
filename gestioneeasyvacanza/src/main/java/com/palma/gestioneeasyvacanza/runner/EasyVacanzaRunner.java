@@ -8,6 +8,7 @@ import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
+import com.palma.gestioneeasyvacanza.model.Prenotazione;
 
 import com.palma.gestioneeasyvacanza.auth.entity.ERole;
 import com.palma.gestioneeasyvacanza.auth.entity.Role;
@@ -56,7 +57,7 @@ public class EasyVacanzaRunner implements ApplicationRunner {
 		//REGISTRARSI QUI TRAMITE ENDPOINT
 		//POPOLA IL DB
 		//starterDB();
-//		
+		
 	}
 	
 	private void starterDB() {
@@ -66,27 +67,29 @@ public class EasyVacanzaRunner implements ApplicationRunner {
 			attivitaService.createAttivitaRandom();
 		}
 		
-		//genera VACANZA
+		//genera CLIENTE
 		for (int i = 0; i<20; i++) {
-			vacanzaService.createVacanzaRandom();
+		clienteService.createClienteRandom();
 		}
-		
+	
 		//genera TESTIMONIANZA
 		for (int i = 0; i<30; i++) {
 			testimonianzaService.createTestimonianzaRandom();
 		}
-		
-		//genera CLIENTE
+			
+		//genera VACANZA
 		for (int i = 0; i<20; i++) {
-			clienteService.createClienteRandom();
+			vacanzaService.createVacanzaRandom();
 		}
 		
 		//genera PRENOTAZIONE
 		for (int i = 0; i<10; i++) {
 			prenotazioneService.createPrenotazioneRandom();
 		}
+
 	}
 		
+	Prenotazione p = new Prenotazione();
 		
 	private void setRoleDefault() {
 		Role admin = new Role();

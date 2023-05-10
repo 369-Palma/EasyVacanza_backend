@@ -48,11 +48,15 @@ public class VacanzaService {
 				}
 				
 				public Vacanza getVacanzaRandom() {
-					return repo.findByVacanzaRandom();
+					return repo.findPerVacanzaRandom();
+				}
+				
+				public Vacanza getVacanzaById(Long id) {
+					return repo.findById(id).get();
 				}
 				
 				public Vacanza createVacanza(Vacanza vacanza) {
-					if(repo.existsById(vacanza.getId())) {
+					if(vacanza.getId()!=null && repo.existsById(vacanza.getId())) {
 						throw new EntityExistsException(" " );
 					} else {
 						repo.save(vacanza);

@@ -27,7 +27,7 @@ public class Prenotazione {
 	@Enumerated(EnumType.STRING)
 	private StatoPrenotazione stato;
 	
-	@OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+	@OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.MERGE)
 	@JoinColumn(name = "id_vacanza")
 	private Vacanza vacanza;
 	

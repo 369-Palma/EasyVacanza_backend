@@ -48,7 +48,7 @@ public class AttivitaService {
 			}
 			
 			public Attivita createAttivita(Attivita attivita) {
-				if(repo.existsById(attivita.getId())) {
+				if(attivita.getId()!= null && repo.existsById(attivita.getId())) {
 					throw new EntityExistsException("Partita iva exists!!!");
 				} else {
 					repo.save(attivita);
