@@ -26,8 +26,9 @@ public class TestimonianzaConfiguration {
 				.nome(fake.name().firstName())
 				.cognome(fake.name().lastName())
 				.email(fake.internet().emailAddress())
-				.feedback(fake.lorem().paragraph(2))
-				.rating(fake.number().numberBetween(0, 5))
+				.feedback(fake.lorem().paragraph(1))
+				.feedback(fake.hitchhikersGuideToTheGalaxy().quote())
+				.rating(fake.number().numberBetween(3, 5))
 				.attivita(attivitaServ.getAttivitaRandom())
 				.cliente(clienteService.getClienteRandom())
 				.build();

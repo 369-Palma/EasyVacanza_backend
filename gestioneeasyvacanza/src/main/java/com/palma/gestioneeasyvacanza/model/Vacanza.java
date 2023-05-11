@@ -27,7 +27,9 @@ import lombok.ToString;
 
 @NoArgsConstructor
 @AllArgsConstructor
-@Data
+@Getter
+@Setter
+@ToString
 @Builder
 
 @Entity
@@ -39,16 +41,14 @@ public class Vacanza {
 	@Column(nullable = false)
 	private String citta;
 	@Column(nullable = false)
-	private String nazione;
-	@Column(nullable = false)
 	private String indirizzo;
 	@Column(nullable = false)
 	private String descrizione;
-	@Column(nullable = false, columnDefinition = "TEXT")
-	private String immagineurl;
 	@Column(nullable = false)
 	@Enumerated(EnumType.STRING)
 	private TipologiaLuogo tipoluogo;
+	@Column(nullable = false, columnDefinition = "TEXT")
+	private String immagineurl;	
 	@Column(nullable = false)
 	private String duratagiorni;
 	@Column(nullable = false)

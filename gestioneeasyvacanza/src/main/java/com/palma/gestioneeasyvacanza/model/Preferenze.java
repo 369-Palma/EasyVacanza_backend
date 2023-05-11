@@ -6,7 +6,7 @@ import com.github.javafaker.Faker;
 
 public enum Preferenze {
 	ACCESSIBILITA_DISABILI,
-	PET_FIRNDLY,
+	PET_FRIENDLY,
 	FAMIGLIE;
 	
 	public static Preferenze PreferenzaRandom() {

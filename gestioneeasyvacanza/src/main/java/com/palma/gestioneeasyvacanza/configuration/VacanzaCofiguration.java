@@ -29,6 +29,8 @@ import okhttp3.Response;
 
 @Configuration
 public class VacanzaCofiguration {
+private TipologiaLuogo luogo;
+//private String keyword = luogo.toString();
 
 	@Autowired AttivitaService attivitaService;
 	@Autowired PrenotazioneService prenotazioneService;
@@ -36,26 +38,33 @@ public class VacanzaCofiguration {
 	@Scope("prototype")
 	
 	public Vacanza VacanzaRandom() throws IOException {
+		
 		Faker fake = new Faker(new Locale("it-IT"));
+		luogo = TipologiaLuogo.TipoLuogoRandom();
 		//per generare prezzo casuale di tipo Double
 		DecimalFormat decimalFormat = new DecimalFormat("#0.00");
         double price = fake.random().nextDouble() * 270.0; // Genera un prezzo casuale tra 0 e 1000
         
 	    //per descrizione
-	            String durata = fake.number().numberBetween(3, 10) + " giorni";
-	            String nazione = fake.country().name();
+	            Integer durataGiorni = fake.number().numberBetween(3, 10);
+	            String durata = durataGiorni + " giorni";
+	            String citta = fake.country().capital();
+	            
+	    //per data fine e durata vacanza
+	            LocalDate dataInizio = LocalDate.of(fake.number().numberBetween(2021, 2022),fake.number().numberBetween(1, 12), fake.number().numberBetween(1, 28));
+	            LocalDate dataFine = dataInizio.plusDays(durataGiorni);
+	            
 	            List<Attivita> list = new ArrayList<>();
 	            list.add(attivitaService.getAttivitaRandom());
 		return Vacanza.builder()
 				.citta(fake.country().capital())
-				.nazione(fake.country().name())
 				.indirizzo(fake.address().city())
-				.descrizione(durata + " da sogno in " + nazione + "." )
+				.descrizione(durata + " da sogno in " + citta + "." )
+				.tipoluogo(luogo)
 				.immagineurl(urlVacanza())
-				.tipoluogo(TipologiaLuogo.TipoLuogoRandom())
 				.duratagiorni(durata)
-				.datainizio(LocalDate.of(fake.number().numberBetween(2021, 2022),fake.number().numberBetween(1, 12), fake.number().numberBetween(1, 28)))
-				.datafine(LocalDate.of(fake.number().numberBetween(2021, 2022),fake.number().numberBetween(1, 12), fake.number().numberBetween(1, 28)))
+				.datainizio(dataInizio)
+				.datafine(dataFine)
 				.alloggio(TipoAlloggio.AlloggioRandom())
 				.preferenza(Preferenze.PreferenzaRandom())
 				.prezzo(price)
@@ -67,7 +76,7 @@ public class VacanzaCofiguration {
 	public String urlVacanza() {
 		//creare immagine url di un immagine casuale partendo da una parola chiave
         OkHttpClient client = new OkHttpClient();
-        String keyword = "landscape"; // Parola chiave per l'immagine casuale
+        String keyword = luogo.toString(); // Parola chiave per l'immagine casuale
         
         try {
             String url = "https://source.unsplash.com/800x600/?"+ keyword;
