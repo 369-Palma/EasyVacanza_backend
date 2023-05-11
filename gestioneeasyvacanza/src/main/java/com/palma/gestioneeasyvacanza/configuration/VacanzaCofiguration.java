@@ -24,8 +24,8 @@ import com.palma.gestioneeasyvacanza.service.PrenotazioneService;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
-import org.json.JSONArray;
-import org.json.JSONObject;
+//import org.json.JSONArray;
+//import org.json.JSONObject;
 
 @Configuration
 public class VacanzaCofiguration {
@@ -39,9 +39,8 @@ public class VacanzaCofiguration {
 		Faker fake = new Faker(new Locale("it-IT"));
 		//per generare prezzo casuale di tipo Double
 		DecimalFormat decimalFormat = new DecimalFormat("#0.00");
-        double price = fake.random().nextDouble() * 1000.0; // Genera un prezzo casuale tra 0 e 1000
+        double price = fake.random().nextDouble() * 270.0; // Genera un prezzo casuale tra 0 e 1000
         
-	
 	    //per descrizione
 	            String durata = fake.number().numberBetween(3, 10) + " giorni";
 	            String nazione = fake.country().name();
