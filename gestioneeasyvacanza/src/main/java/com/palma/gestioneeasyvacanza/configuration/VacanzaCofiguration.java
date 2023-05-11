@@ -46,16 +46,16 @@ private TipologiaLuogo luogo;
         double price = fake.random().nextDouble() * 270.0; // Genera un prezzo casuale tra 0 e 1000
         
 	    //per descrizione
-	            Integer durataGiorni = fake.number().numberBetween(3, 10);
-	            String durata = durataGiorni + " giorni";
-	            String citta = fake.country().capital();
+        Integer durataGiorni = fake.number().numberBetween(3, 10);
+        String durata = durataGiorni + " giorni";
+        String citta = fake.country().capital();
 	            
 	    //per data fine e durata vacanza
-	            LocalDate dataInizio = LocalDate.of(fake.number().numberBetween(2021, 2022),fake.number().numberBetween(1, 12), fake.number().numberBetween(1, 28));
-	            LocalDate dataFine = dataInizio.plusDays(durataGiorni);
-	            
-	            List<Attivita> list = new ArrayList<>();
-	            list.add(attivitaService.getAttivitaRandom());
+        LocalDate dataInizio = LocalDate.of(fake.number().numberBetween(2021, 2022),fake.number().numberBetween(1, 12), fake.number().numberBetween(1, 28));
+        LocalDate dataFine = dataInizio.plusDays(durataGiorni);
+        
+        List<Attivita> list = new ArrayList<>();
+        list.add(attivitaService.getAttivitaRandom());
 		return Vacanza.builder()
 				.citta(fake.country().capital())
 				.indirizzo(fake.address().city())
