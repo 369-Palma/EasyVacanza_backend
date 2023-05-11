@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.palma.gestioneeasyvacanza.model.Attivita;
 import com.palma.gestioneeasyvacanza.model.Difficolta;
+import com.palma.gestioneeasyvacanza.model.TipoAttivita;
 import com.palma.gestioneeasyvacanza.service.AttivitaService;
 
 @RestController
@@ -50,11 +51,13 @@ public ResponseEntity<?> getById(@PathVariable("id") Long id) {
 public ResponseEntity<?> createAttivita(@RequestBody Attivita attivita) {
 	return new ResponseEntity<Attivita>(service.createAttivita(attivita), HttpStatus.CREATED);
 }
+
 @DeleteMapping("/{id}")
 @PreAuthorize("hasRole('ADMIN')")
 public ResponseEntity<String> deleteAttivita(@PathVariable Long id){
 	return new ResponseEntity<String>(service.removeAttivita(id), HttpStatus.OK);
 }
+
 @PutMapping
 @PreAuthorize("hasRole('ADMIN')")
 public ResponseEntity<?> updateUser(@RequestBody Attivita attivita) {
@@ -62,6 +65,12 @@ public ResponseEntity<?> updateUser(@RequestBody Attivita attivita) {
 }
 
 //SPECIALI
+@GetMapping("/attivita/{attivita}")
+@PreAuthorize("isAuthenticated()")
+public ResponseEntity<?> getBy(@PathVariable TipoAttivita attivita, Pageable pag) {
+	return new ResponseEntity<Page<Attivita>>(service.filtaPerAttivita(attivita, pag), HttpStatus.OK);
+}
+
 @GetMapping("/difficolta/{difficolta}")
 @PreAuthorize("isAuthenticated()")
 public ResponseEntity<?> getByDifficolta(@PathVariable Difficolta difficolta, Pageable pag) {

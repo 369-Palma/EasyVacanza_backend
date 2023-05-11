@@ -11,6 +11,7 @@ import org.springframework.stereotype.Service;
 
 import com.palma.gestioneeasyvacanza.model.Attivita;
 import com.palma.gestioneeasyvacanza.model.Difficolta;
+import com.palma.gestioneeasyvacanza.model.TipoAttivita;
 import com.palma.gestioneeasyvacanza.repository.AttivitaRepository;
 
 import jakarta.persistence.EntityExistsException;
@@ -72,18 +73,25 @@ public class AttivitaService {
 				return attivita;
 			}
 			
-			// METODI SPECIALI
+			// METODI SPECIALI (FILTRA PER: ATTIVITA', DIFFICOLTA' E PAROLA CHIAVE) 
+			
+			public Page<Attivita> filtaPerAttivita (TipoAttivita attivita, Pageable page) {
+				if(!repo.existsByAttivita(attivita)) {
+					throw new EntityExistsException("Non sono disponibili attività di tipo:  " + attivita);
+				}
+				return repo.searchByAttivita(attivita, page);
+			}
 			
 			public Page<Attivita> filtaPerDifficolta (Difficolta difficolta, Pageable pag) {
 				if(repo.existsByDifficolta(difficolta)){
-					throw new EntityExistsException("Non sono disponibili attività con livello di difficoltà" + difficolta);
+					throw new EntityExistsException("Non sono disponibili attività con livello di difficoltà " + difficolta);
 				}
 				return repo.findByDifficolta(difficolta, pag);				
 			}
 			
 			public Page<Attivita> getAllAttivitaByDescrizione(String descrizione, Pageable page){			
 				if(repo.existsByDescrizione(descrizione)) {
-					throw new EntityExistsException("Non sono disponibili attività di tipo" + descrizione);
+					throw new EntityExistsException("Non sono disponibili attività di tipo " + descrizione);
 				}
 				return (Page<Attivita>) repo.searchByDescrizione(descrizione, page);
 			}

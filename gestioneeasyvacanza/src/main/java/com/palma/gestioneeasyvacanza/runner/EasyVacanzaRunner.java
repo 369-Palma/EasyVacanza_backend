@@ -54,6 +54,8 @@ public class EasyVacanzaRunner implements ApplicationRunner {
 		//SETTA RUOLI ADMIN/USER IN DB
 		//setRoleDefault();
 		
+		//EFETTUARE LA REGISTRAZIONE E IL LOGIN
+		
 		//REGISTRARSI QUI TRAMITE ENDPOINT
 		//POPOLA IL DB
 		//starterDB();

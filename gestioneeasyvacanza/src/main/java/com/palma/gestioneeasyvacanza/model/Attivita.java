@@ -36,8 +36,14 @@ public class Attivita {
 	@Id 
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
+	
+	@Column(nullable = false)
+	@Enumerated(EnumType.STRING)
+	private TipoAttivita attivita;
+	
 	@Column(nullable = false)
 	private String descrizione;
+	
 	@Column(nullable = false)
 	@Enumerated(EnumType.STRING)
 	private Difficolta difficolta;

@@ -43,10 +43,10 @@ private TipologiaLuogo luogo;
 		luogo = TipologiaLuogo.TipoLuogoRandom();
 		//per generare prezzo casuale di tipo Double
 		DecimalFormat decimalFormat = new DecimalFormat("#0.00");
-        double price = fake.random().nextDouble() * 270.0; // Genera un prezzo casuale tra 0 e 1000
-        
+       // double price = fake.random().nextDouble() * 270.0; // Genera un prezzo casuale tra 0 e 1000
+        double price = fake.number().randomDouble(2, 200, 900);
 	    //per descrizione
-        Integer durataGiorni = fake.number().numberBetween(3, 10);
+        Integer durataGiorni = fake.number().numberBetween(3, 15);
         String durata = durataGiorni + " giorni";
         String citta = fake.country().capital();
 	            
@@ -57,7 +57,7 @@ private TipologiaLuogo luogo;
         List<Attivita> list = new ArrayList<>();
         list.add(attivitaService.getAttivitaRandom());
 		return Vacanza.builder()
-				.citta(fake.country().capital())
+				.citta(citta)
 				.indirizzo(fake.address().city())
 				.descrizione(durata + " da sogno in " + citta + "." )
 				.tipoluogo(luogo)

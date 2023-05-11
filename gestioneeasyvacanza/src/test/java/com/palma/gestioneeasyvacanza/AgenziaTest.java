@@ -18,6 +18,7 @@ import com.palma.gestioneeasyvacanza.model.Prenotazione;
 import com.palma.gestioneeasyvacanza.model.StatoPrenotazione;
 import com.palma.gestioneeasyvacanza.model.Testimonianza;
 import com.palma.gestioneeasyvacanza.model.TipoAlloggio;
+import com.palma.gestioneeasyvacanza.model.TipoAttivita;
 import com.palma.gestioneeasyvacanza.model.TipologiaLuogo;
 import com.palma.gestioneeasyvacanza.model.Vacanza;
 
@@ -42,7 +43,7 @@ public class AgenziaTest {
 		List<Vacanza> listaV = new ArrayList<>();
 		listaV.add(v);
 		
-		a = new Attivita(3l,"descrizione", Difficolta.AVANZATO, listaV, testL);
+		a = new Attivita(3l,TipoAttivita.Arrampicata, "descrizione", Difficolta.AVANZATO, listaV, testL);
 		List<Attivita> attivitaL = new ArrayList<>();
 		attivitaL.add(a);
 		
@@ -78,6 +79,13 @@ public class AgenziaTest {
 	public void testPreferenza () {
 		assertEquals(Preferenze.ACCESSIBILITA_DISABILI, v.getPreferenza());
 	}
+	
+	@Test
+	@DisplayName("tipologia di attività")
+	public void testTipoAttivita() {
+		assertEquals(TipoAttivita.Arrampicata, a.getAttivita());
+	}
+	
 	
 	@Test
 	@DisplayName("livello di difficoltà")	

@@ -38,7 +38,7 @@ public class Testimonianza {
 	private String cognome;
 	@Column(nullable = false)
 	private String email;
-	@Column(nullable = false)
+	@Column(nullable = false, columnDefinition = "TEXT")
 	private String feedback;
 	@Column(nullable = false)
 	private Integer rating;

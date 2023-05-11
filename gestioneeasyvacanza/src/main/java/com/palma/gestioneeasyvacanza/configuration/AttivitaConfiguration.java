@@ -26,13 +26,18 @@ public class AttivitaConfiguration {
 	@Scope("prototype")
 	public Attivita AttivitaRandom() {
 		
+		TipoAttivita attivita = TipoAttivita.TipoAttivitaRandom();
 		Difficolta difficolta = Difficolta.DifficoltaRandom() ;
+		
 		List<Vacanza> vacanze = new ArrayList<>();
 		vacanze.add(vacanzaService.getVacanzaRandom());
+		
 		List<Testimonianza> testimonianze = new ArrayList<>();
 		testimonianze.add(testimonianzaService.getTestimonianzaRandom());
+		
 		return Attivita.builder()
-				.descrizione("Imperdibile " + TipoAttivita.TipoAttivitaRandom()  + ". Livello di difficoltà: " + difficolta)
+				.attivita(attivita)
+				.descrizione("Imperdibile " + attivita  + ". Livello di difficoltà: " + difficolta)
 				.difficolta(difficolta)
 				.vacanze(vacanze)
 				.testimonianze(testimonianze)
