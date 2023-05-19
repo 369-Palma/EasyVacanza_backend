@@ -9,6 +9,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -23,6 +24,7 @@ import com.palma.gestioneeasyvacanza.model.TipologiaLuogo;
 import com.palma.gestioneeasyvacanza.model.Vacanza;
 import com.palma.gestioneeasyvacanza.service.VacanzaService;
 
+@CrossOrigin(origins =  "*", maxAge = 360000)
 @Controller
 @RequestMapping("/api/vacanze")
 public class VacanzaController {
@@ -30,13 +32,13 @@ public class VacanzaController {
 	@Autowired VacanzaService service;
 	
 	@GetMapping
-	@PreAuthorize("isAuthenticated()")
+	
 	public ResponseEntity<?> getAll() {
 		return new ResponseEntity<List<Vacanza>>(service.getAllVacanza(), HttpStatus.OK);
 	}
 
 	@GetMapping("/pageable")
-	@PreAuthorize("isAuthenticated()")
+	
 	public ResponseEntity<Page<Vacanza>> getAllPage(Pageable pag) {
 		return new ResponseEntity<Page<Vacanza>>(service.getAllVacanzaPageable(pag), HttpStatus.OK);
 	}
@@ -65,19 +67,19 @@ public class VacanzaController {
 
 	//SPECIALI
 	@GetMapping("/tipoluogo/{luogo}")
-	@PreAuthorize("isAuthenticated()")
+	
 	public ResponseEntity<?> getByTipoLuogo(@PathVariable TipologiaLuogo luogo, Pageable pag) {
 		return new ResponseEntity<Page<Vacanza>>(service.getByLuogo(luogo, pag), HttpStatus.OK);
 	}
 	
 	@GetMapping("/alloggio/{alloggio}")
-	@PreAuthorize("isAuthenticated()")
+	
 	public ResponseEntity<?> getByTipoLuogo(@PathVariable TipoAlloggio alloggio, Pageable pag) {
 		return new ResponseEntity<Page<Vacanza>>(service.getByAlloggio(alloggio, pag), HttpStatus.OK);
 	}
 	
 	@GetMapping("/preferenza/{preferenza}")
-	@PreAuthorize("isAuthenticated()")
+	
 	public ResponseEntity<?> getByTipoPreferenza(@PathVariable Preferenze preferenza, Pageable pag) {
 		return new ResponseEntity<Page<Vacanza>>(service.getByPreferenza(preferenza, pag), HttpStatus.OK);
 	}
