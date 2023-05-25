@@ -59,18 +59,19 @@ public class EasyVacanzaRunner implements ApplicationRunner {
 		//REGISTRARSI QUI TRAMITE ENDPOINT
 		//POPOLA IL DB
 		//starterDB();
+	
 		
 	}
 	
 	private void starterDB() {
 		
 		//genera ATTIVITA'
-		for (int i = 0; i<20; i++) {	
+		for (int i = 0; i<10; i++) {	
 			attivitaService.createAttivitaRandom();
 		}
 		
 		//genera CLIENTE
-		for (int i = 0; i<20; i++) {
+		for (int i = 0; i<5; i++) {
 		clienteService.createClienteRandom();
 		}
 	
@@ -80,12 +81,12 @@ public class EasyVacanzaRunner implements ApplicationRunner {
 		}
 			
 		//genera VACANZA
-		for (int i = 0; i<20; i++) {
+		for (int i = 0; i<30; i++) {
 			vacanzaService.createVacanzaRandom();
 		}
 		
 		//genera PRENOTAZIONE
-		for (int i = 0; i<10; i++) {
+		for (int i = 0; i<5; i++) {
 			prenotazioneService.createPrenotazioneRandom();
 		}
 

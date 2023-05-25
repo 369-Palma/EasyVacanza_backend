@@ -1,5 +1,6 @@
 package com.palma.gestioneeasyvacanza.controller;
 
+import java.time.LocalDate;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,8 +25,9 @@ import com.palma.gestioneeasyvacanza.model.TipologiaLuogo;
 import com.palma.gestioneeasyvacanza.model.Vacanza;
 import com.palma.gestioneeasyvacanza.service.VacanzaService;
 
-@CrossOrigin(origins =  "*", maxAge = 360000)
+//@CrossOrigin(origins =  "*", maxAge = 360000)
 @Controller
+@CrossOrigin(origins = "http://localhost:3000", allowCredentials = "true")
 @RequestMapping("/api/vacanze")
 public class VacanzaController {
 
@@ -44,7 +46,7 @@ public class VacanzaController {
 	}
 
 	@GetMapping("/id/{id}")
-	@PreAuthorize("isAuthenticated()")
+	//@CrossOrigin(origins = "http://localhost:3000", allowCredentials = "true")
 	public ResponseEntity<?> getById(@PathVariable("id") Long id) {
 		return new ResponseEntity<>(service.getVacanza(id), HttpStatus.OK);
 	}
@@ -66,8 +68,18 @@ public class VacanzaController {
 	}
 
 	//SPECIALI
-	@GetMapping("/tipoluogo/{luogo}")
 	
+	@GetMapping ("/citta/{citta}")
+	public ResponseEntity<?> getByNomeCitta(@PathVariable String citta, Pageable page){
+		return new ResponseEntity<Page<Vacanza>>(service.getByCitta(citta, page), HttpStatus.OK);
+	}
+	
+	@GetMapping ("/datainizio/{datatinizio}")
+	public ResponseEntity<?> getByData(@PathVariable LocalDate datainizio, Pageable page){
+		return new ResponseEntity<Page<Vacanza>>(service.getByDatainizio(datainizio, page), HttpStatus.OK);
+	}
+	
+	@GetMapping("/tipoluogo/{luogo}")
 	public ResponseEntity<?> getByTipoLuogo(@PathVariable TipologiaLuogo luogo, Pageable pag) {
 		return new ResponseEntity<Page<Vacanza>>(service.getByLuogo(luogo, pag), HttpStatus.OK);
 	}

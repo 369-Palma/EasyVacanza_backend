@@ -8,7 +8,7 @@ public enum TipoAttivita {
 	Escursione,
 	Arrampicata,
 	Esplorazione,
-	Cannottaggio,
+	Canottaggio,
 	Degustazione;
 	
 	

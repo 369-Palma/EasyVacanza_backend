@@ -47,7 +47,7 @@ public class PrenotazioneController {
 		}
 			
 		@PostMapping
-		@PreAuthorize("hasRole('ADMIN')")
+		@PreAuthorize("isAuthenticated()")
 		public ResponseEntity<?> createPrentazione(@RequestBody Prenotazione prenotazione) {
 			return new ResponseEntity<Prenotazione>(service.createPrenotazione(prenotazione), HttpStatus.CREATED);
 		}

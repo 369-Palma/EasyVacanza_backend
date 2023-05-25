@@ -23,8 +23,9 @@ import com.palma.gestioneeasyvacanza.model.Difficolta;
 import com.palma.gestioneeasyvacanza.model.TipoAttivita;
 import com.palma.gestioneeasyvacanza.service.AttivitaService;
 
-@CrossOrigin(origins =  "*", maxAge = 360000)
+//@CrossOrigin(origins =  "*", maxAge = 360000)
 @RestController
+@CrossOrigin(origins = "http://localhost:3000", allowCredentials = "true")
 @RequestMapping("/api/attivita")
 public class AttivitaController {
 
@@ -43,7 +44,7 @@ public ResponseEntity<Page<Attivita>> getAllPage(Pageable pag) {
 }
 
 @GetMapping("/id/{id}")
-@PreAuthorize("isAuthenticated()")
+
 public ResponseEntity<?> getById(@PathVariable("id") Long id) {
 	return new ResponseEntity<>(service.getAttivita(id), HttpStatus.OK);
 }

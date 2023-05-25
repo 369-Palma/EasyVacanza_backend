@@ -2,6 +2,7 @@ package com.palma.gestioneeasyvacanza.model;
 
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.palma.gestioneeasyvacanza.auth.entity.User;
 
@@ -44,9 +45,9 @@ public class Testimonianza {
 	private Integer rating;
 	
 	@ManyToOne
-	@JsonIgnoreProperties({"testimonianze"})
+	//@JsonIgnoreProperties({"testimonianze"})
 	private Attivita attivita;
-	
+	@JsonIgnore
 	@ManyToOne
 	@JoinColumn(name = "id_cliente")
 	private Cliente cliente;

@@ -41,7 +41,7 @@ public class TestimonianzaController {
 	}
 
 	@GetMapping("/id/{id}")
-	@PreAuthorize("isAuthenticated()")
+	//@PreAuthorize("isAuthenticated()")
 	public ResponseEntity<?> getById(@PathVariable("id") Long id) {
 		return new ResponseEntity<>(service.getTestimonianza(id), HttpStatus.OK);
 	}
