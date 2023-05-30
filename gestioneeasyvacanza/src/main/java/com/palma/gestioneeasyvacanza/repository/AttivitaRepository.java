@@ -29,7 +29,7 @@ public interface AttivitaRepository extends JpaRepository<Attivita, Long> {
 	public Page<Attivita> findByDifficolta(Difficolta difficolta, Pageable pag);
 	
 	//FILTRO PER PAROLE CHIAVE NELLA DESCRIZIONE
-	@Query("SELECT a FROM Attivita a WHERE LOWER(a.descrizione) LIKE LOWER('%' || :descrizione || '%')")
+	@Query("SELECT a FROM Attivita a WHERE LOWER(a.descrizione) LIKE LOWER ('%' || :descrizione || '%')")
 	public Page<Attivita> searchByDescrizione(String descrizione, Pageable page);
 	
 }

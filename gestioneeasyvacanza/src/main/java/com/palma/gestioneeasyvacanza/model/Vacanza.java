@@ -1,7 +1,9 @@
-package com.palma.gestioneeasyvacanza.model;
+ package com.palma.gestioneeasyvacanza.model;
 
 import java.time.LocalDate;
 import java.util.List;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
@@ -69,8 +71,10 @@ public class Vacanza {
      joinColumns = @JoinColumn(name = "vacanze_id", referencedColumnName = "id"),
      inverseJoinColumns = @JoinColumn(name = "attivita_id", referencedColumnName = "id")
 	)
+	//@JsonIgnore
 	private List<Attivita> attivita;
 	
+	@JsonIgnore
 	@OneToOne(mappedBy = "vacanza")
 	private Prenotazione prenotazione;
 }

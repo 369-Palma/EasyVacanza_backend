@@ -9,6 +9,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -20,6 +21,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import com.palma.gestioneeasyvacanza.model.Prenotazione;
 import com.palma.gestioneeasyvacanza.service.PrenotazioneService;
 
+@CrossOrigin(origins = "http://localhost:3000", allowCredentials = "true")
 @Controller
 @RequestMapping("/api/prenotazioni")
 public class PrenotazioneController {
@@ -39,13 +41,13 @@ public class PrenotazioneController {
 		}
 
 		@GetMapping("/id/{id}")
-		@PreAuthorize("isAuthenticated()")
+		//@PreAuthorize("isAuthenticated()")
 		public ResponseEntity<?> getById(@PathVariable("id") Long id) {
 			return new ResponseEntity<>(service.getPrenotazione(id), HttpStatus.OK);
 		}
 			
 		@PostMapping
-		@PreAuthorize("hasRole('ADMIN')")
+		@PreAuthorize("isAuthenticated()")
 		public ResponseEntity<?> createPrentazione(@RequestBody Prenotazione prenotazione) {
 			return new ResponseEntity<Prenotazione>(service.createPrenotazione(prenotazione), HttpStatus.CREATED);
 		}

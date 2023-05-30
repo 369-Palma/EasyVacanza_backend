@@ -51,7 +51,7 @@ private TipologiaLuogo luogo;
         String citta = fake.country().capital();
 	            
 	    //per data fine e durata vacanza
-        LocalDate dataInizio = LocalDate.of(fake.number().numberBetween(2021, 2022),fake.number().numberBetween(1, 12), fake.number().numberBetween(1, 28));
+        LocalDate dataInizio = LocalDate.of(fake.number().numberBetween(2023, 2025),fake.number().numberBetween(1, 12), fake.number().numberBetween(1, 28));
         LocalDate dataFine = dataInizio.plusDays(durataGiorni);
         
         List<Attivita> list = new ArrayList<>();

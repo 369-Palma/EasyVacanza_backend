@@ -2,6 +2,7 @@ package com.palma.gestioneeasyvacanza.model;
 
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import jakarta.persistence.CascadeType;
@@ -48,10 +49,12 @@ public class Attivita {
 	@Enumerated(EnumType.STRING)
 	private Difficolta difficolta;
 	
+	//@JsonIgnore
 	@ManyToMany
 	private List<Vacanza> vacanze;
 	
 	@OneToMany(mappedBy = "attivita", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-	@JsonIgnoreProperties({"attivita"})
+	//@JsonIgnoreProperties({"attivita"})
+	//@JsonIgnore
 	private List<Testimonianza> testimonianze;
 }

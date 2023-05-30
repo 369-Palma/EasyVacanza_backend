@@ -1,5 +1,7 @@
 package com.palma.gestioneeasyvacanza.repository;
 
+import java.time.LocalDate;
+
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -23,6 +25,8 @@ public interface VacanzaRepository extends JpaRepository<Vacanza, Long> {
 	boolean existsByTipoluogo(TipologiaLuogo tipoluogo);
 	boolean existsByAlloggio(TipoAlloggio alloggio);
 	boolean existsByPreferenza(Preferenze preferenza);
+	boolean existsByDatainizio(LocalDate datainizio);
+	boolean existsByCitta(String citta);
 	
 	 @Query("SELECT v FROM Vacanza v WHERE v.tipoluogo = :luogo")
 	    Page<Vacanza> findByTipoluogo(@Param("luogo") TipologiaLuogo luogo, Pageable page);
@@ -35,5 +39,17 @@ public interface VacanzaRepository extends JpaRepository<Vacanza, Long> {
 	 @Query("SELECT v FROM Vacanza v WHERE v.preferenza = :preferenza")
 		public Page<Vacanza> FindByPreferenza(Preferenze preferenza, Pageable page);
 
-		
+	//filtro per city (parte nome)
+	
+	//public Page<Vacanza> findByCittaContainingIgnoreCase(String citta, Pageable page);
+	
+	@Query("SELECT v FROM Vacanza v WHERE LOWER(v.citta) LIKE LOWER ( :citta || '%')")
+	public Page<Vacanza> searchByCitta(String citta, Pageable page);
+	
+		 
+	//filtro per data d'inizio
+		 @Query("SELECT v FROM Vacanza v WHERE v.datainizio = :datainizio")
+		 public Page<Vacanza> SearchByDatainizio(LocalDate datainizio, Pageable page);
+		 
+
 }

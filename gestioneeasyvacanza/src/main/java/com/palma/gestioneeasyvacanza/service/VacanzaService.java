@@ -1,5 +1,6 @@
 package com.palma.gestioneeasyvacanza.service;
 
+import java.time.LocalDate;
 import java.util.List;
 
 import org.springframework.beans.factory.ObjectProvider;
@@ -81,24 +82,43 @@ public class VacanzaService {
 				}
 				
 				//Metodi speciali
+				//public Page<Vacanza> getByCittaintera(String citta, Pageable page){
+				//	if(!repo.existsByCitta(citta)) {
+					//	throw new EntityExistsException("Non sono presenti vacanze presso " + citta);
+					//} 
+				//	return repo.searchByCitta(citta, page);
+				//}
+				
+				public Page<Vacanza> getByCitta(String citta, Pageable page){
+					
+					return repo.searchByCitta(citta, page);
+					}
+				
+				
+				public Page<Vacanza> getByDatainizio(LocalDate datainizio, Pageable page){
+					if(!repo.existsByDatainizio(datainizio)) {
+						throw new EntityExistsException("Non sono presenti vacanze che iniziano il " + datainizio);
+					} 
+					return repo.SearchByDatainizio(datainizio, page);
+				}
 				
 				public Page<Vacanza> getByLuogo(TipologiaLuogo luogo, Pageable pag){
 					if(!repo.existsByTipoluogo(luogo)) {
-						throw new EntityExistsException("Non ci sono vacanze per la tipologia " + luogo);
+						throw new EntityExistsException("Non sono presenti vacanze per la tipologia " + luogo);
 					}
 					return repo.findByTipoluogo(luogo, pag);
 				}
 				
 				public Page<Vacanza> getByAlloggio(TipoAlloggio alloggio, Pageable pag){
 					if(!repo.existsByAlloggio(alloggio)) {
-						throw new EntityExistsException("Non ci sono vacanze per la tipologia di alloggio  " + alloggio);
+						throw new EntityExistsException("Non sono presenti vacanze per la tipologia di alloggio  " + alloggio);
 					}
 					return repo.FindByAlloggio(alloggio, pag);
 				}
 				
 				public Page<Vacanza> getByPreferenza(Preferenze preferenza, Pageable pag){
 					if(!repo.existsByPreferenza(preferenza)) {
-						throw new EntityExistsException("Non ci sono vacanze per " + preferenza);
+						throw new EntityExistsException("Non sono presenti vacanze per " + preferenza);
 					}
 					return repo.FindByPreferenza(preferenza, pag);
 				}

@@ -17,4 +17,5 @@ public interface PrenotazioneRepository extends JpaRepository<Prenotazione, Long
 	@Query("SELECT p FROM Prenotazione p WHERE p.numeroprenotazione = :numeroprenotazione")
 	public Prenotazione FindByNumeroprenotazione(Long numeroprenotazione);
 	
+	
 }

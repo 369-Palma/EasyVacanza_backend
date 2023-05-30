@@ -2,6 +2,7 @@ package com.palma.gestioneeasyvacanza.model;
 
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import jakarta.persistence.*;
@@ -27,12 +28,14 @@ public class Cliente {
 	private String cognome;
 	@Column(nullable = false)
 	private String email;
-	@Column(nullable = false)
+	@Column(nullable = true)
 	private Integer age;
+	
 	@ManyToMany(mappedBy = "clienti", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
 	@JsonIgnoreProperties({"cliente"})
 	private List<Prenotazione> prenotazioni;
 	
+	@JsonIgnore
 	@OneToMany(mappedBy = "cliente")
 	private List<Testimonianza> testimonianze;
 }
