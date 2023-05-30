@@ -30,9 +30,11 @@ public class Cliente {
 	private String email;
 	@Column(nullable = true)
 	private Integer age;
+	
 	@ManyToMany(mappedBy = "clienti", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-	//@JsonIgnoreProperties({"cliente"})
+	@JsonIgnoreProperties({"cliente"})
 	private List<Prenotazione> prenotazioni;
+	
 	@JsonIgnore
 	@OneToMany(mappedBy = "cliente")
 	private List<Testimonianza> testimonianze;

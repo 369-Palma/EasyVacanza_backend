@@ -8,7 +8,6 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
 
-
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
@@ -29,7 +28,7 @@ public class Prenotazione {
 	@Enumerated(EnumType.STRING)
 	private StatoPrenotazione stato;
 	
-	@JsonIgnore
+	//@JsonIgnore
 	@OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.MERGE)
 	@JoinColumn(name = "id_vacanza")
 	private Vacanza vacanza;

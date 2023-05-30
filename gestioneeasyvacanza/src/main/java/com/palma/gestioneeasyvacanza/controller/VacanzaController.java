@@ -27,20 +27,18 @@ import com.palma.gestioneeasyvacanza.service.VacanzaService;
 
 //@CrossOrigin(origins =  "*", maxAge = 360000)
 @Controller
-@CrossOrigin(origins = "http://localhost:3000", allowCredentials = "true")
+@CrossOrigin(origins = "http://localhost:3000", maxAge = 360000, allowCredentials = "true")
 @RequestMapping("/api/vacanze")
 public class VacanzaController {
 
 	@Autowired VacanzaService service;
 	
 	@GetMapping
-	
 	public ResponseEntity<?> getAll() {
 		return new ResponseEntity<List<Vacanza>>(service.getAllVacanza(), HttpStatus.OK);
 	}
 
 	@GetMapping("/pageable")
-	
 	public ResponseEntity<Page<Vacanza>> getAllPage(Pageable pag) {
 		return new ResponseEntity<Page<Vacanza>>(service.getAllVacanzaPageable(pag), HttpStatus.OK);
 	}
@@ -52,17 +50,18 @@ public class VacanzaController {
 	}
 		
 	@PostMapping
-	@PreAuthorize("hasRole('ADMIN')")
+	@PreAuthorize("isAuthenticated()")
 	public ResponseEntity<?> createVacanza(@RequestBody Vacanza vacanza) {
 		return new ResponseEntity<Vacanza>(service.createVacanza(vacanza), HttpStatus.CREATED);
 	}
+	
 	@DeleteMapping("/{id}")
-	@PreAuthorize("hasRole('ADMIN')")
+	@PreAuthorize("isAuthenticated()")
 	public ResponseEntity<String> deleteVacanza(@PathVariable Long id){
 		return new ResponseEntity<String>(service.removeVacanza(id), HttpStatus.OK);
 	}
 	@PutMapping
-	@PreAuthorize("hasRole('ADMIN')")
+	@PreAuthorize("isAuthenticated()")
 	public ResponseEntity<?> updateUser(@RequestBody Vacanza vacanza) {
 		return new ResponseEntity<Vacanza>(service.updateVacanza(vacanza), HttpStatus.CREATED);
 	}
@@ -74,8 +73,8 @@ public class VacanzaController {
 		return new ResponseEntity<Page<Vacanza>>(service.getByCitta(citta, page), HttpStatus.OK);
 	}
 	
-	@GetMapping ("/datainizio/{datatinizio}")
-	public ResponseEntity<?> getByData(@PathVariable LocalDate datainizio, Pageable page){
+	@GetMapping ("/datainizio/{datainizio}")
+	public ResponseEntity<?> getByDatainizio(@PathVariable LocalDate datainizio, Pageable page){
 		return new ResponseEntity<Page<Vacanza>>(service.getByDatainizio(datainizio, page), HttpStatus.OK);
 	}
 	
@@ -85,8 +84,7 @@ public class VacanzaController {
 	}
 	
 	@GetMapping("/alloggio/{alloggio}")
-	
-	public ResponseEntity<?> getByTipoLuogo(@PathVariable TipoAlloggio alloggio, Pageable pag) {
+	public ResponseEntity<?> getByAlloggio(@PathVariable TipoAlloggio alloggio, Pageable pag) {
 		return new ResponseEntity<Page<Vacanza>>(service.getByAlloggio(alloggio, pag), HttpStatus.OK);
 	}
 	

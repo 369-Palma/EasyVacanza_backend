@@ -21,7 +21,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import com.palma.gestioneeasyvacanza.model.Prenotazione;
 import com.palma.gestioneeasyvacanza.service.PrenotazioneService;
 
-@CrossOrigin(origins =  "*", maxAge = 360000)
+@CrossOrigin(origins = "http://localhost:3000", allowCredentials = "true")
 @Controller
 @RequestMapping("/api/prenotazioni")
 public class PrenotazioneController {
@@ -41,7 +41,7 @@ public class PrenotazioneController {
 		}
 
 		@GetMapping("/id/{id}")
-		@PreAuthorize("isAuthenticated()")
+		//@PreAuthorize("isAuthenticated()")
 		public ResponseEntity<?> getById(@PathVariable("id") Long id) {
 			return new ResponseEntity<>(service.getPrenotazione(id), HttpStatus.OK);
 		}

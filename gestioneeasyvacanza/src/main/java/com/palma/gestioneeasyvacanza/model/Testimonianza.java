@@ -45,8 +45,9 @@ public class Testimonianza {
 	private Integer rating;
 	
 	@ManyToOne
-	//@JsonIgnoreProperties({"testimonianze"})
+	@JsonIgnoreProperties({"testimonianze"})
 	private Attivita attivita;
+	
 	@JsonIgnore
 	@ManyToOne
 	@JoinColumn(name = "id_cliente")

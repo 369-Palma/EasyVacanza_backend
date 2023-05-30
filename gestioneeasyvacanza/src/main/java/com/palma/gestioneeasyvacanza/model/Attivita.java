@@ -49,12 +49,12 @@ public class Attivita {
 	@Enumerated(EnumType.STRING)
 	private Difficolta difficolta;
 	
-	@JsonIgnore
+	//@JsonIgnore
 	@ManyToMany
 	private List<Vacanza> vacanze;
 	
 	@OneToMany(mappedBy = "attivita", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
 	//@JsonIgnoreProperties({"attivita"})
-	@JsonIgnore
+	//@JsonIgnore
 	private List<Testimonianza> testimonianze;
 }

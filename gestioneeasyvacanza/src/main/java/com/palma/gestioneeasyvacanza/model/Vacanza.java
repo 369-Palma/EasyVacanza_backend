@@ -71,7 +71,7 @@ public class Vacanza {
      joinColumns = @JoinColumn(name = "vacanze_id", referencedColumnName = "id"),
      inverseJoinColumns = @JoinColumn(name = "attivita_id", referencedColumnName = "id")
 	)
-	@JsonIgnore
+	//@JsonIgnore
 	private List<Attivita> attivita;
 	
 	@JsonIgnore
