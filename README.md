@@ -1,4 +1,4 @@
-# Backend per gestionale di fatturazione energetica B2B
+# Backend per gestionale di prenotazione di pacchetti vacanza
 
 Questo progetto è un Backend sviluppato in Java Spring Boot per un gestionale di prenotazioni di pacchetti vaggio per l'agenzia EasyVacanza.
 L'obiettivo è quello di gestire le entità come cliente, vacanza e prenotazione e le loro interazioni all'interno del sistema.
