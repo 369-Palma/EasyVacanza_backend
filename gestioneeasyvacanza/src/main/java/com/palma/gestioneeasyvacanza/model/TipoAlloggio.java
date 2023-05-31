@@ -5,11 +5,11 @@ import java.util.Locale;
 import com.github.javafaker.Faker;
 
 public enum TipoAlloggio {
-	HOTEL,
-	BUNGALOW,
-	TENDA,
-	CAMPEGGIO_ATTREZZATO,
-	APPARTAMENTO;
+	hotel,
+	bungalow,
+	tenda,
+	campeggio,
+	appartamento;
 	
 	public static TipoAlloggio AlloggioRandom() {
 		Faker fake = new Faker(new Locale("it-IT"));

@@ -43,7 +43,7 @@ public class AgenziaTest {
 		List<Vacanza> listaV = new ArrayList<>();
 		listaV.add(v);
 		
-		a = new Attivita(3l,TipoAttivita.Arrampicata, "descrizione", Difficolta.AVANZATO, listaV, testL);
+		a = new Attivita(3l,TipoAttivita.Arrampicata, "descrizione", Difficolta.avanzato, listaV, testL);
 		List<Attivita> attivitaL = new ArrayList<>();
 		attivitaL.add(a);
 		
@@ -51,7 +51,7 @@ public class AgenziaTest {
 		List<Cliente> clienteL = new ArrayList<>();
 		clienteL.add(c);
 		
-		v = new Vacanza(23l,"Bari","indirizzo", "bellissimo",TipologiaLuogo.CAMPAGNA,"immagineurl", "3 giorni", LocalDate.of(2022, 5, 12),LocalDate.of(2022, 5, 15),TipoAlloggio.CAMPEGGIO_ATTREZZATO,Preferenze.ACCESSIBILITA_DISABILI,101d,attivitaL,p);
+		v = new Vacanza(23l,"Bari","indirizzo", "bellissimo",TipologiaLuogo.campagna,"immagineurl", "3 giorni", LocalDate.of(2022, 5, 12),LocalDate.of(2022, 5, 15),TipoAlloggio.campeggio,Preferenze.accessibilità_disabili,101d,attivitaL,p);
 
 		p = new Prenotazione(0l,3829374938l, LocalDate.of(2022, 5, 12), 2, StatoPrenotazione.CONFERMATO,v,clienteL);
 	}
@@ -65,19 +65,19 @@ public class AgenziaTest {
 	@Test
 	@DisplayName("tipologia luogo")	
 	public void testTipoLuogo () {
-		assertEquals(TipologiaLuogo.CAMPAGNA, v.getTipoluogo());
+		assertEquals(TipologiaLuogo.campagna, v.getTipoluogo());
 	}
 	
 	@Test
 	@DisplayName("tipo di alloggio")	
 	public void testTipoAlloggio () {
-		assertEquals(TipoAlloggio.CAMPEGGIO_ATTREZZATO, v.getAlloggio());
+		assertEquals(TipoAlloggio.campeggio, v.getAlloggio());
 	}
 	
 	@Test
 	@DisplayName("preferenze")	
 	public void testPreferenza () {
-		assertEquals(Preferenze.ACCESSIBILITA_DISABILI, v.getPreferenza());
+		assertEquals(Preferenze.accessibilità_disabili, v.getPreferenza());
 	}
 	
 	@Test
@@ -90,7 +90,7 @@ public class AgenziaTest {
 	@Test
 	@DisplayName("livello di difficoltà")	
 	public void testLivello () {
-		assertEquals(Difficolta.AVANZATO, a.getDifficolta());
+		assertEquals(Difficolta.avanzato, a.getDifficolta());
 	}
 	
 	@Test

@@ -5,9 +5,9 @@ import java.util.Locale;
 import com.github.javafaker.Faker;
 
 public enum Preferenze {
-	ACCESSIBILITA_DISABILI,
-	PET_FRIENDLY,
-	FAMIGLIE;
+	accessibilità_disabili,
+	pet_friendly,
+	famiglie;
 	
 	public static Preferenze PreferenzaRandom() {
 		Faker fake = new Faker(new Locale("it-IT"));
