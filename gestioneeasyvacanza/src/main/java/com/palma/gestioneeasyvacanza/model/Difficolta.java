@@ -5,9 +5,9 @@ import java.util.Locale;
 import com.github.javafaker.Faker;
 
 public enum Difficolta {
-	FACILE,
-	MODERATO,
-	AVANZATO;
+	facile,
+	moderato,
+	avanzato;
 	
 	public static Difficolta DifficoltaRandom() {
 		Faker fake = new Faker(new Locale("it-IT"));

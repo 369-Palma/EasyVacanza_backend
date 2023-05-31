@@ -71,7 +71,7 @@ public class EasyVacanzaRunner implements ApplicationRunner {
 		}
 		
 		//genera CLIENTE
-		for (int i = 0; i<5; i++) {
+		for (int i = 0; i<2; i++) {
 		clienteService.createClienteRandom();
 		}
 	
@@ -86,7 +86,7 @@ public class EasyVacanzaRunner implements ApplicationRunner {
 		}
 		
 		//genera PRENOTAZIONE
-		for (int i = 0; i<5; i++) {
+		for (int i = 0; i<2; i++) {
 			prenotazioneService.createPrenotazioneRandom();
 		}
 

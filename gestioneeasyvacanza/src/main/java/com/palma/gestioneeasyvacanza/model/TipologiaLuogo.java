@@ -5,11 +5,11 @@ import java.util.Locale;
 import com.github.javafaker.Faker;
 
 public enum TipologiaLuogo {
-	MARE,
-	MONTAGNA,
-	FORESTA,
-	CAMPAGNA,
-	METROPOLI;
+	mare,
+	montagna,
+	foresta,
+	campagna,
+	metropoli;
 	
 	public static TipologiaLuogo TipoLuogoRandom() {
 		Faker fake = new Faker(new Locale("it-IT"));
