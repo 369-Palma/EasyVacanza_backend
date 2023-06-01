@@ -58,7 +58,7 @@ Eseguire in ordine i seguenti passaggi:
 
 - Navigare nella directory in cui desideri clonare il progetto.
 
-- Eseguire il comando git clone https://github.com/369-Palma/Capstone-project.git
+- Eseguire il comando git clone https://github.com/369-Palma/EasyVacanza_backend.git
    per clonare il repository del progetto. 
    
 - Navigare nella directory del progetto appena clonato usando il comando cd [nomeprogetto].
@@ -83,4 +83,4 @@ Importare, attraverso le impostazioni di BuildPath, le librerie di Junit5 in Cla
 
 ## FRONTEND 
 
-Sei curios@ di vedere l'utilizzo del db e gli endpoint all'opera? Clicca qui: https://github.com/369-Palma/easyvacanzareact.git
+Sei curios@ di vedere l'utilizzo del db e gli endpoint all'opera? Clicca qui: https://github.com/369-Palma/EasyVacanza_frontend.git
