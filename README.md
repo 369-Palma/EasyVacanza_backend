@@ -33,9 +33,9 @@ Una prenotazione può avere più clienti.
 
 ## Documentazione API
 
-La documentazione dell'API può essere visionata nell'apposita collection di Postman file "easyVacanza.postman.json".
+La documentazione dell'API può essere visionata nell'apposita collection di Postman file "EasyVacanza.postman_collection.json".
 
-Per accedervi si segua il presente percorso: src > main > resources > static > easyVacanza.postman.json.
+Per accedervi si segua il presente percorso: src > main > resources > static > EasyVacanza.postman_collection.json.
 
 ## LOGIN/REGISTER
 
@@ -51,13 +51,7 @@ Tutti i campi sono in formato String, ad eccezione dei ROLES che sono un array d
 
 I ruoli disponibili sono "ROLE_ADMIN" e "ROLE_USER".
 
-## Installazione di base veloce:
-
-Importare il DB da DUMPDB.sql contenuto in 'src/main/resources/static'
-
-Settare il file application.properties in base alle necessità, a partire da application.properties.template
-
-## Installazione Manuale:
+## Installazione 
 
 Eseguire in ordine i seguenti passaggi:
 
@@ -78,3 +72,7 @@ Eseguire in ordine i seguenti passaggi:
 In caso di utilizzo di Eclipse, la suite di test utilizzata è JUnit 5, quindi Jupiter, da importare.
 
 Importare, attraverso le impostazioni di BuildPath, le librerie di Junit5 in ClassPath Modules.
+
+## FRONTEND 
+
+Sei curios@ di vedere l'utilizzo del db e gli endpoint all'opera? Clicca qui: https://github.com/369-Palma/easyvacanzareact.git
