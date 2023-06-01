@@ -1,4 +1,4 @@
-# Backend per gestionale di prenotazione di pacchetti vacanza
+# Gestionale di prenotazione di pacchetti vacanza - EasyVacanza
 
 Questo progetto è un Backend sviluppato in Java Spring Boot per un gestionale di prenotazioni di pacchetti vaggio per l'agenzia EasyVacanza.
 L'obiettivo è quello di gestire le entità come cliente, vacanza e prenotazione e le loro interazioni all'interno del sistema.
@@ -51,11 +51,19 @@ Tutti i campi sono in formato String, ad eccezione dei ROLES che sono un array d
 
 I ruoli disponibili sono "ROLE_ADMIN" e "ROLE_USER".
 
-## Installazione 
+## Clonazione e installazione 
 
 Eseguire in ordine i seguenti passaggi:
+- Aprire il terminale sul tuo computer.
 
-- CREARE UN DB su Postgres o MySql
+- Navigare nella directory in cui desideri clonare il progetto.
+
+- Eseguire il comando git clone https://github.com/369-Palma/Capstone-project.git
+   per clonare il repository del progetto. 
+   
+- Navigare nella directory del progetto appena clonato usando il comando cd [nomeprogetto].
+
+- Creare un DB su Postgres o MySql
 
 - Settare il file application.properties in base alle necessità, a partire da application.properties.template
 
