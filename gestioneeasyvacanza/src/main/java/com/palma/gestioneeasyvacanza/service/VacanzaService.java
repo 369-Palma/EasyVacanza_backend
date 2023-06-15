@@ -19,6 +19,8 @@ import com.palma.gestioneeasyvacanza.repository.VacanzaRepository;
 import jakarta.persistence.EntityExistsException;
 import jakarta.persistence.EntityNotFoundException;
 
+import com.palma.gestioneeasyvacanza.model.TipoAttivita;
+
 @Service
 public class VacanzaService {
 
@@ -121,5 +123,9 @@ public class VacanzaService {
 						throw new EntityExistsException("Non sono presenti vacanze per " + preferenza);
 					}
 					return repo.FindByPreferenza(preferenza, pag);
+				}
+				
+				public Page<Vacanza> getByAttivita(TipoAttivita attivita, Pageable page){
+					return repo.SearchByAttivita(attivita, page);
 				}
 }

@@ -11,6 +11,7 @@ import org.springframework.stereotype.Repository;
 
 import com.palma.gestioneeasyvacanza.model.Preferenze;
 import com.palma.gestioneeasyvacanza.model.TipoAlloggio;
+import com.palma.gestioneeasyvacanza.model.TipoAttivita;
 import com.palma.gestioneeasyvacanza.model.TipologiaLuogo;
 import com.palma.gestioneeasyvacanza.model.Vacanza;
 
@@ -50,6 +51,11 @@ public interface VacanzaRepository extends JpaRepository<Vacanza, Long> {
 	//filtro per data d'inizio
 		 @Query("SELECT v FROM Vacanza v WHERE v.datainizio = :datainizio")
 		 public Page<Vacanza> SearchByDatainizio(LocalDate datainizio, Pageable page);
+		 
+	//filtro per tipo di attività
+		 
+		 @Query("SELECT v FROM Vacanza v JOIN v.attivita a WHERE a.attivita = :attivita")
+		 public Page<Vacanza> SearchByAttivita(TipoAttivita attivita, Pageable page );
 		 
 
 }

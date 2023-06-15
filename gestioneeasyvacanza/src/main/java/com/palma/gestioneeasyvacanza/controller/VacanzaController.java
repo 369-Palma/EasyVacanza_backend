@@ -24,6 +24,7 @@ import com.palma.gestioneeasyvacanza.model.TipoAlloggio;
 import com.palma.gestioneeasyvacanza.model.TipologiaLuogo;
 import com.palma.gestioneeasyvacanza.model.Vacanza;
 import com.palma.gestioneeasyvacanza.service.VacanzaService;
+import com.palma.gestioneeasyvacanza.model.TipoAttivita;
 
 @CrossOrigin(origins =  "http://localhost:3000", maxAge = 360000)
 @Controller
@@ -90,5 +91,10 @@ public class VacanzaController {
 	@GetMapping("/preferenza/{preferenza}")
 	public ResponseEntity<?> getByTipoPreferenza(@PathVariable Preferenze preferenza, Pageable pag) {
 		return new ResponseEntity<Page<Vacanza>>(service.getByPreferenza(preferenza, pag), HttpStatus.OK);
+	}
+	
+	@GetMapping("/attivita/{attivita}")
+	public ResponseEntity<?> getByTipoAttivita(@PathVariable TipoAttivita attivita, Pageable page){
+		return new ResponseEntity<Page<Vacanza>>(service.getByAttivita(attivita, page), HttpStatus.OK);
 	}
 }
