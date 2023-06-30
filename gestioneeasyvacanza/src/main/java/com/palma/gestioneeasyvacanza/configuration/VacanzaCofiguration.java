@@ -3,6 +3,7 @@ package com.palma.gestioneeasyvacanza.configuration;
 import java.io.IOException;
 
 import java.util.Locale;
+import java.util.concurrent.ThreadLocalRandom;
 import java.text.DecimalFormat;
 import java.time.LocalDate;
 import java.util.*;
@@ -51,7 +52,10 @@ private TipologiaLuogo luogo;
         String citta = fake.country().capital();
 	            
 	    //per data fine e durata vacanza
-        LocalDate dataInizio = LocalDate.of(fake.number().numberBetween(2023, 2025),fake.number().numberBetween(1, 12), fake.number().numberBetween(1, 28));
+        //LocalDate dataInizio = LocalDate.of(fake.number().numberBetween(2023, 2025),fake.number().numberBetween(1, 12), fake.number().numberBetween(1, 28));
+        
+        //Per generare una data casuale tra oggi e un anno e mezzo da oggi
+        LocalDate dataInizio = LocalDate.now().plusDays(ThreadLocalRandom.current().nextLong(1, 540)); 
         LocalDate dataFine = dataInizio.plusDays(durataGiorni);
         
         List<Attivita> list = new ArrayList<>();
