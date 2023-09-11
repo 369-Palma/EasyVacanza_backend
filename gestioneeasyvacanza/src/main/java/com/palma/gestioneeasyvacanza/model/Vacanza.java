@@ -1,6 +1,7 @@
  package com.palma.gestioneeasyvacanza.model;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -17,11 +18,11 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.JoinTable;
 import jakarta.persistence.ManyToMany;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
-import lombok.Data;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -65,6 +66,8 @@ public class Vacanza {
 	private Preferenze preferenza;
 	@Column(nullable = false)
 	private Double prezzo;
+	@Column(nullable = false)
+    private int numeroMax;
 	
 	@ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.MERGE)
 	@JoinTable(name = "vacanze_attivita",
@@ -75,6 +78,35 @@ public class Vacanza {
 	private List<Attivita> attivita;
 	
 	@JsonIgnore
-	@OneToOne(mappedBy = "vacanza")
-	private Prenotazione prenotazione;
+	@OneToMany(mappedBy = "vacanza")
+	private List<Prenotazione> prenotazioni;
+	
+	
+	//metodo per verifica disponibilità posti
+	public String prenota(int numeroOspiti) {
+	    if (numeroOspiti > 0 && numeroOspiti <= getNumeroPostiDisponibili()) {
+	        Prenotazione prenotazione = new Prenotazione();
+	        prenotazione.setNumerospiti(numeroOspiti);
+	        prenotazione.setStato(StatoPrenotazione.IN_ELABORAZIONE); 
+
+	        if (prenotazioni == null) {
+	            prenotazioni = new ArrayList<Prenotazione>();
+	        }
+
+	        prenotazioni.add(prenotazione);
+	        return "Sould out";
+	    }
+	    return "Prenotazione non valida";
+	}
+	
+	public int getNumeroOspitiPrenotati() {
+		if(prenotazioni == null) {
+			return 0;
+		}
+		return prenotazioni.stream().mapToInt(Prenotazione::getNumerospiti).sum();
+	}
+	
+	public int getNumeroPostiDisponibili() {
+        return numeroMax - getNumeroOspitiPrenotati();
+    }
 }

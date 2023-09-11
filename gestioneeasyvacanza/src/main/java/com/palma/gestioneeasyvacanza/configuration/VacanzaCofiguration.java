@@ -15,6 +15,7 @@ import org.springframework.context.annotation.Scope;
 
 import com.github.javafaker.Faker;
 import com.palma.gestioneeasyvacanza.model.Attivita;
+import com.palma.gestioneeasyvacanza.model.Prenotazione;
 import com.palma.gestioneeasyvacanza.model.Preferenze;
 import com.palma.gestioneeasyvacanza.model.TipoAlloggio;
 import com.palma.gestioneeasyvacanza.model.TipologiaLuogo;
@@ -60,6 +61,9 @@ private TipologiaLuogo luogo;
         
         List<Attivita> list = new ArrayList<>();
         list.add(attivitaService.getAttivitaRandom());
+        
+        List<Prenotazione> prenotazioni = new ArrayList<>();
+        prenotazioni.add(prenotazioneService.getPrenotazioneRandom());
 		return Vacanza.builder()
 				.citta(citta)
 				.indirizzo(fake.address().city())
@@ -72,8 +76,9 @@ private TipologiaLuogo luogo;
 				.alloggio(TipoAlloggio.AlloggioRandom())
 				.preferenza(Preferenze.PreferenzaRandom())
 				.prezzo(price)
+				.numeroMax(fake.number().numberBetween(20, 50))
 				.attivita(list)
-				.prenotazione(prenotazioneService.getPrenotazioneRandom())
+				.prenotazioni(prenotazioni)
 				.build();
 	}
 	

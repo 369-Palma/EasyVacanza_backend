@@ -51,7 +51,7 @@ public class AgenziaTest {
 		List<Cliente> clienteL = new ArrayList<>();
 		clienteL.add(c);
 		
-		v = new Vacanza(23l,"Bari","indirizzo", "bellissimo",TipologiaLuogo.campagna,"immagineurl", "3 giorni", LocalDate.of(2022, 5, 12),LocalDate.of(2022, 5, 15),TipoAlloggio.campeggio,Preferenze.accessibilità_disabili,101d,attivitaL,p);
+		v = new Vacanza(23l,"Bari","indirizzo", "bellissimo",TipologiaLuogo.campagna,"immagineurl", "3 giorni", LocalDate.of(2022, 5, 12),LocalDate.of(2022, 5, 15),TipoAlloggio.campeggio,Preferenze.accessibilità_disabili,101d,21,attivitaL,listP);
 
 		p = new Prenotazione(0l,3829374938l, LocalDate.of(2022, 5, 12), 2, StatoPrenotazione.CONFERMATO,v,clienteL);
 	}
