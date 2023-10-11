@@ -2,15 +2,9 @@ package com.palma.gestioneeasyvacanza.auth.payload;
 
 import java.util.Set;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.*;
 
-@Setter
-@Getter
-@ToString
+@Data
 @NoArgsConstructor
 @AllArgsConstructor
 public class RegisterDto {

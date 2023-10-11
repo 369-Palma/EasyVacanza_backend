@@ -1,15 +1,10 @@
 package com.palma.gestioneeasyvacanza.auth.entity;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.*;
 
-@Getter
-@Setter
-@ToString
+
+@Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity

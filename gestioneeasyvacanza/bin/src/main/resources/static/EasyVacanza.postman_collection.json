@@ -1,0 +1,886 @@
+{
+	"info": {
+		"_postman_id": "42c715c9-7359-4b9e-ae07-a0ee0a55e6b2",
+		"name": "EasyVacanza",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "26072682"
+	},
+	"item": [
+		{
+			"name": "Vacanza",
+			"item": [
+				{
+					"name": "all vacanze pageable",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8081/api/vacanze/pageable?size=5&sort=prezzo&page=1",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"api",
+								"vacanze",
+								"pageable"
+							],
+							"query": [
+								{
+									"key": "size",
+									"value": "5"
+								},
+								{
+									"key": "sort",
+									"value": "prezzo"
+								},
+								{
+									"key": "page",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Find by tipo di alloggio (pageable)",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8081/api/vacanze/alloggio/TENDA",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"api",
+								"vacanze",
+								"alloggio",
+								"TENDA"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "find by tipologia luogo (pageable)",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8081/api/vacanze/tipoluogo/MONTAGNA?page=0&size=3",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"api",
+								"vacanze",
+								"tipoluogo",
+								"MONTAGNA"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "0"
+								},
+								{
+									"key": "size",
+									"value": "3"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Find by preferenza (pageable)",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8081/api/vacanze/preferenza/ACCESSIBILITA_DISABILI?page=0&size=1",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"api",
+								"vacanze",
+								"preferenza",
+								"ACCESSIBILITA_DISABILI"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "0"
+								},
+								{
+									"key": "size",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "new Vacanza",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJmb3h5QGhvdG1haWwuaXQiLCJpYXQiOjE2ODU1MTk5MDMsImV4cCI6MTY5MzQwOTMwM30.6IEGnpgmDlmGjyUcRNtVwjhaE6mVDS0N9IxyHO2DbWzwgcpMS2o2A8E3amOa8vKW",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n            \r\n            \"citta\": \"Gallipoli\",\r\n            \"indirizzo\": \"Serse salentino\",\r\n            \"descrizione\": \"7 giorni da sogno a Gallipoli.\",\r\n            \"tipoluogo\": \"MARE\",\r\n            \"immagineurl\": \"https://images.unsplash.com/photo-1587656421406-273a011cad8d?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=600&ixid=MnwxfDB8MXxyYW5kb218MHx8TU9OVEFHTkF8fHx8fHwxNjg0MDc2MDMx&ixlib=rb-4.0.3&q=80&utm_campaign=api-credit&utm_medium=referral&utm_source=unsplash_source&w=800\",\r\n            \"duratagiorni\": \"7 giorni\",\r\n            \"datainizio\": \"2021-08-08\",\r\n            \"datafine\": \"2021-08-15\",\r\n            \"alloggio\": \"TENDA\",\r\n            \"preferenza\": \"PET_FRIENDLY\",\r\n            \"prezzo\": 323.62,\r\n            \"attivita\": [\r\n                {\r\n                    \"id\": 6,\r\n                    \"attivita\": \"Degustazione\",\r\n                    \"descrizione\": \"Imperdibile Degustazione. Livello di difficoltà: FACILE\",\r\n                    \"difficolta\": \"FACILE\",\r\n                    \"vacanze\": [],\r\n                    \"testimonianze\": []\r\n                }\r\n            ],\r\n            \"prenotazione\": null\r\n        }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8081/api/vacanze",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"api",
+								"vacanze"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Vacanza - PUT",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJmb3h5QGhvdG1haWwuaXQiLCJpYXQiOjE2ODU1MTY5MjAsImV4cCI6MTY5MzQwNjMyMH0.Uu8jkmRb4_1EbtrgZYZEUnrjY72m8rtxLINggpeJFBgZZa8dhE_WBdBxQqyC2Yul",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n            \"id\": 1,\r\n            \"citta\": \"Ortisei\",\r\n            \"indirizzo\": \"Serse salentino\",\r\n            \"descrizione\": \"11 giorni da sogno in Ortisei.\",\r\n            \"tipoluogo\": \"MONTAGNA\",\r\n            \"immagineurl\": \"https://images.unsplash.com/photo-1587656421406-273a011cad8d?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=600&ixid=MnwxfDB8MXxyYW5kb218MHx8TU9OVEFHTkF8fHx8fHwxNjg0MDc2MDMx&ixlib=rb-4.0.3&q=80&utm_campaign=api-credit&utm_medium=referral&utm_source=unsplash_source&w=800\",\r\n            \"duratagiorni\": \"11 giorni\",\r\n            \"datainizio\": \"2021-08-08\",\r\n            \"datafine\": \"2021-08-19\",\r\n            \"alloggio\": \"BUNGALOW\",\r\n            \"preferenza\": \"PET_FRIENDLY\",\r\n            \"prezzo\": 323.62,\r\n            \"attivita\": [\r\n                {\r\n                    \"id\": 12,\r\n                    \"attivita\": \"Degustazione\",\r\n                    \"descrizione\": \"Imperdibile Degustazione. Livello di difficoltà: FACILE\",\r\n                    \"difficolta\": \"FACILE\",\r\n                    \"vacanze\": [],\r\n                    \"testimonianze\": []\r\n                }\r\n            ],\r\n            \"prenotazione\": null\r\n        }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8081/api/vacanze",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"api",
+								"vacanze"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Elimina vacanza",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJmb3h5QGhvdG1haWwuaXQiLCJpYXQiOjE2ODU1MTY5MjAsImV4cCI6MTY5MzQwNjMyMH0.Uu8jkmRb4_1EbtrgZYZEUnrjY72m8rtxLINggpeJFBgZZa8dhE_WBdBxQqyC2Yul",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:8081/api/vacanze/21",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"api",
+								"vacanze",
+								"21"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get by citta",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8081/api/vacanze/citta/v",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"api",
+								"vacanze",
+								"citta",
+								"v"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get by data inizio",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8081/api/vacanze/datainizio/2023-07-06",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"api",
+								"vacanze",
+								"datainizio",
+								"2023-07-06"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get by id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8081/api/vacanze/id/3",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"api",
+								"vacanze",
+								"id",
+								"3"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Prenotazioni",
+			"item": [
+				{
+					"name": "Find by numero di prenotazione",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJmb255LmNveHlAaHJoZmduLml0IiwiaWF0IjoxNjg0MDc4OTI3LCJleHAiOjE2OTE5NjgzMjd9.5kKxUnq62PEyZx2y4BoDwjEvyTt4WMKlpSdSTDPXlKHE_gjdlA6AfO6P20Z39n4x",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8086/api/prenotazioni/numero_prenotazione/8636417788",
+							"host": [
+								"localhost"
+							],
+							"port": "8086",
+							"path": [
+								"api",
+								"prenotazioni",
+								"numero_prenotazione",
+								"8636417788"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Find by id",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJmb3h5QGhvdG1haWwuaXQiLCJpYXQiOjE2ODU1MTk5MDMsImV4cCI6MTY5MzQwOTMwM30.6IEGnpgmDlmGjyUcRNtVwjhaE6mVDS0N9IxyHO2DbWzwgcpMS2o2A8E3amOa8vKW",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8081/api/prenotazioni/id/2",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"api",
+								"prenotazioni",
+								"id",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get all pageable",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJmb3h5QGhvdG1haWwuaXQiLCJpYXQiOjE2ODU1MTk5MDMsImV4cCI6MTY5MzQwOTMwM30.6IEGnpgmDlmGjyUcRNtVwjhaE6mVDS0N9IxyHO2DbWzwgcpMS2o2A8E3amOa8vKW",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8081/api/prenotazioni/pageable?page=0&size=4",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"api",
+								"prenotazioni",
+								"pageable"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "0"
+								},
+								{
+									"key": "size",
+									"value": "4"
+								},
+								{
+									"key": "sort",
+									"value": "",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "! new Prenotazione",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJmb3h5QGhvdG1haWwuaXQiLCJpYXQiOjE2ODU1MTk5MDMsImV4cCI6MTY5MzQwOTMwM30.6IEGnpgmDlmGjyUcRNtVwjhaE6mVDS0N9IxyHO2DbWzwgcpMS2o2A8E3amOa8vKW",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \r\n    \"numeroprenotazione\": 5045775298,\r\n    \"dataprenotazione\": \"2022-08-04\",\r\n    \"numerospiti\": 6,\r\n    \"stato\": \"IN_ELABORAZIONE\",\r\n    \"vacanza\": {\r\n        \"id\": 23,\r\n        \"citta\": \"Bucharest\",\r\n        \"indirizzo\": \"Bellini laziale\",\r\n        \"descrizione\": \"8 giorni da sogno in Bucharest.\",\r\n        \"tipoluogo\": \"campagna\",\r\n        \"immagineurl\": \"https://images.unsplash.com/photo-1607703703674-df96af81dffa?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=600&ixid=MnwxfDB8MXxyYW5kb218MHx8Y2FtcGFnbmF8fHx8fHwxNjg1NTIwMDA3&ixlib=rb-4.0.3&q=80&utm_campaign=api-credit&utm_medium=referral&utm_source=unsplash_source&w=800\",\r\n        \"duratagiorni\": \"8 giorni\",\r\n        \"datainizio\": \"2024-03-22\",\r\n        \"datafine\": \"2024-03-30\",\r\n        \"alloggio\": \"tenda\",\r\n        \"preferenza\": \"famiglie\",\r\n        \"prezzo\": 340.01,\r\n        \"attivita\": [\r\n            {\r\n                \"id\": 6,\r\n                \"attivita\": \"Escursione\",\r\n                \"descrizione\": \"Imperdibile Escursione. Livello di difficoltà: facile\",\r\n                \"difficolta\": \"facile\",\r\n                \"vacanze\": [],\r\n                \"testimonianze\": [\r\n                    {\r\n                        \"id\": 4,\r\n                        \"nome\": \"Lucia\",\r\n                        \"cognome\": \"Piras\",\r\n                        \"email\": \"miriana.basile@gmail.com\",\r\n                        \"feedback\": \"If there's anything more important than my ego around, I want it caught and shot now.\",\r\n                        \"rating\": 4,\r\n                        \"attivita\": {\r\n                            \"id\": 6,\r\n                            \"attivita\": \"Escursione\",\r\n                            \"descrizione\": \"Imperdibile Escursione. Livello di difficoltà: facile\",\r\n                            \"difficolta\": \"facile\",\r\n                            \"vacanze\": []\r\n                        }\r\n                    },\r\n                    {\r\n                        \"id\": 27,\r\n                        \"nome\": \"Anselmo\",\r\n                        \"cognome\": \"Vitali\",\r\n                        \"email\": \"mattia.deangelis@libero.it\",\r\n                        \"feedback\": \"If there's anything more important than my ego around, I want it caught and shot now.\",\r\n                        \"rating\": 4,\r\n                        \"attivita\": {\r\n                            \"id\": 6,\r\n                            \"attivita\": \"Canottaggio\",\r\n                            \"descrizione\": \"Imperdibile Canottaggio. Livello di difficoltà: moderato\",\r\n                            \"difficolta\": \"moderato\",\r\n                            \"vacanze\": []\r\n                        }\r\n                    }\r\n                ]\r\n            }\r\n        ]\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8081/api/prenotazioni",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"api",
+								"prenotazioni"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "modifica prenotazione",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJmb3h5QGhvdG1haWwuaXQiLCJpYXQiOjE2ODU1MTk5MDMsImV4cCI6MTY5MzQwOTMwM30.6IEGnpgmDlmGjyUcRNtVwjhaE6mVDS0N9IxyHO2DbWzwgcpMS2o2A8E3amOa8vKW",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{   \"id\": \"1\",\r\n    \"numeroprenotazione\": 343417711,\r\n    \"dataprenotazione\": \"2023-05-14\",\r\n    \"numerospiti\": 1,\r\n    \"stato\": \"CONFERMATO\",\r\n    \"vacanza\": {\r\n         \"id\": 12,\r\n        \"citta\": \"Kuala Lumpur\",\r\n        \"indirizzo\": \"San Loretta\",\r\n        \"descrizione\": \"8 giorni da sogno in Kuala Lumpur.\",\r\n        \"tipoluogo\": \"montagna\",\r\n        \"immagineurl\": \"https://images.unsplash.com/photo-1578080467271-b803c10040ab?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=600&ixid=MnwxfDB8MXxyYW5kb218MHx8TU9OVEFHTkF8fHx8fHwxNjg0MDc2MDU1&ixlib=rb-4.0.3&q=80&utm_campaign=api-credit&utm_medium=referral&utm_source=unsplash_source&w=800\",\r\n        \"duratagiorni\": \"8 giorni\",\r\n        \"datainizio\": \"2021-09-18\",\r\n        \"datafine\": \"2021-09-26\",\r\n        \"alloggio\": \"tenda\",\r\n        \"preferenza\": \"accessibilità_disabili\",\r\n        \"prezzo\": 764.5,\r\n         \"attivita\": [\r\n            {\r\n                \"id\": 13,\r\n                \"attivita\": \"Canottaggio\",\r\n                \"descrizione\": \"Imperdibile Canottaggio. Livello di difficoltà: moderato\",\r\n                \"difficolta\": \"moderato\",\r\n                \"vacanze\": [],\r\n                \"testimonianze\": null\r\n            }\r\n         ],\r\n         \"cliente\": {\r\n                                                                                            \"id\": 69,\r\n                                                                                            \"nome\": \"Palma\",\r\n                                                                                            \"cognome\": \"Iacobelli\",\r\n                                                                                            \"email\": \"paLmA.iacoby@email.it\",\r\n                                                                                            \"age\":30,\r\n                                                                                            \"prenotazioni\": null\r\n         }\r\n    }\r\n\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8081/api/prenotazioni",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"api",
+								"prenotazioni"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "elimina prenotazione",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJmb3h5QGhvdG1haWwuaXQiLCJpYXQiOjE2ODU1MTk5MDMsImV4cCI6MTY5MzQwOTMwM30.6IEGnpgmDlmGjyUcRNtVwjhaE6mVDS0N9IxyHO2DbWzwgcpMS2o2A8E3amOa8vKW",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:8081/api/prenotazioni/11",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"api",
+								"prenotazioni",
+								"11"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Attività",
+			"item": [
+				{
+					"name": "Filra per tipo di attività",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJmb255LmNveHlAaHJoZmduLml0IiwiaWF0IjoxNjg0MDc4OTI3LCJleHAiOjE2OTE5NjgzMjd9.5kKxUnq62PEyZx2y4BoDwjEvyTt4WMKlpSdSTDPXlKHE_gjdlA6AfO6P20Z39n4x",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8081/api/attivita/Esplorazione",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"api",
+								"attivita",
+								"Esplorazione"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "!!!! Filtra per difficoltà !!!!",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJmb3h5QGhvdG1haWwuaXQiLCJpYXQiOjE2ODU1MTk5MDMsImV4cCI6MTY5MzQwOTMwM30.6IEGnpgmDlmGjyUcRNtVwjhaE6mVDS0N9IxyHO2DbWzwgcpMS2o2A8E3amOa8vKW",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8081/api/attivita/difficolta/facile",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"api",
+								"attivita",
+								"difficolta",
+								"facile"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Trova per parola chiave",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8081/api/attivita/partedescrizione/esp",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"api",
+								"attivita",
+								"partedescrizione",
+								"esp"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "all attività pageable",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8081/api/attivita/pageable?page=1&size=3",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"api",
+								"attivita",
+								"pageable"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "size",
+									"value": "3"
+								},
+								{
+									"key": "sort",
+									"value": "difficolta",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"auth": {
+				"type": "bearer",
+				"bearer": [
+					{
+						"key": "token",
+						"value": "eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJmb255LmNveHlAaHJoZmduLml0IiwiaWF0IjoxNjg0MDc4OTI3LCJleHAiOjE2OTE5NjgzMjd9.5kKxUnq62PEyZx2y4BoDwjEvyTt4WMKlpSdSTDPXlKHE_gjdlA6AfO6P20Z39n4x",
+						"type": "string"
+					}
+				]
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Testimonianze",
+			"item": [
+				{
+					"name": "Get all pageable",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJmb3h5QGhvdG1haWwuaXQiLCJpYXQiOjE2ODU1MTk5MDMsImV4cCI6MTY5MzQwOTMwM30.6IEGnpgmDlmGjyUcRNtVwjhaE6mVDS0N9IxyHO2DbWzwgcpMS2o2A8E3amOa8vKW",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8081/api/testimonianze/pageable?page=0&size=3&sort=rating",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"api",
+								"testimonianze",
+								"pageable"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "0"
+								},
+								{
+									"key": "size",
+									"value": "3"
+								},
+								{
+									"key": "sort",
+									"value": "rating"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Find by rating",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJmb3h5QGhvdG1haWwuaXQiLCJpYXQiOjE2ODU1MTk5MDMsImV4cCI6MTY5MzQwOTMwM30.6IEGnpgmDlmGjyUcRNtVwjhaE6mVDS0N9IxyHO2DbWzwgcpMS2o2A8E3amOa8vKW",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8081/api/testimonianze/rating/4",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"api",
+								"testimonianze",
+								"rating",
+								"4"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "new recensione",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJmb3h5QGhvdG1haWwuaXQiLCJpYXQiOjE2ODU1MTk5MDMsImV4cCI6MTY5MzQwOTMwM30.6IEGnpgmDlmGjyUcRNtVwjhaE6mVDS0N9IxyHO2DbWzwgcpMS2o2A8E3amOa8vKW",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n            \"nome\": \"Palma\",\r\n            \"cognome\": \"Iaco\",\r\n            \"email\": \"palma.iacoo@yahoo.it\",\r\n            \"feedback\": \"Vacanza strepitosa.Ottima accoglienza, posto imcantevole e ben attrezzato.\",\r\n            \"rating\": 5,\r\n            \"attivita\": {\r\n                \"id\": 18,\r\n                \"attivita\": \"Arrampicata\",\r\n                \"descrizione\": \"Imperdibile Arrampicata. Livello di difficoltà: FACILE\",\r\n                \"difficolta\": \"FACILE\",\r\n                \"vacanze\": []\r\n            },\r\n            \"cliente\": {\r\n                \"nome\": \"Palma\",\r\n                \"cognome\": \"Iaco\",\r\n                \"email\": \"p.iaco@hotmail.com\",\r\n                \"age\": 31,\r\n                \"prenotazioni\": null,\r\n                \"testimonianze\":null\r\n            }\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8081/api/testimonianze",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"api",
+								"testimonianze"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Clienti",
+			"item": [
+				{
+					"name": "Aggiungi cliente",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJmb3h5QGhvdG1haWwuaXQiLCJpYXQiOjE2ODU1MTk5MDMsImV4cCI6MTY5MzQwOTMwM30.6IEGnpgmDlmGjyUcRNtVwjhaE6mVDS0N9IxyHO2DbWzwgcpMS2o2A8E3amOa8vKW",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nome\":\"Pippo\",\r\n    \"cognome\": \"Inzaghi\",\r\n    \"email\": \"pippo.inzaghi@libero.it\",\r\n    \"age\":50,\r\n    \"prenotazioni\": null,\r\n    \"testimonianze\": null\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8081/api/cliente",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"api",
+								"cliente"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "register/login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"paolo\",\r\n    \"surname\": \"foxy\",\r\n    \"username\": \"foxy.92\",\r\n    \"email\": \"foxy@hotmail.it\",\r\n    \"password\": \"123456\",\r\n    \"roles\": [\"ROLE_ADMIN\"]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8081/api/auth/login",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"api",
+						"auth",
+						"login"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
