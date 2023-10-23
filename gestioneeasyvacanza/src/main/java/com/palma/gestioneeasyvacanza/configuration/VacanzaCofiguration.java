@@ -48,7 +48,7 @@ private TipologiaLuogo luogo;
        // double price = fake.random().nextDouble() * 270.0; // Genera un prezzo casuale tra 0 e 1000
         double price = fake.number().randomDouble(2, 200, 900);
 	    //per descrizione
-        Integer durataGiorni = fake.number().numberBetween(3, 15);
+        Integer durataGiorni = fake.number().numberBetween(5, 10);
         String durata = durataGiorni + " giorni";
         String citta = fake.country().capital();
 	            
@@ -76,7 +76,7 @@ private TipologiaLuogo luogo;
 				.alloggio(TipoAlloggio.AlloggioRandom())
 				.preferenza(Preferenze.PreferenzaRandom())
 				.prezzo(price)
-				.numeroMax(fake.number().numberBetween(20, 50))
+				.numeroMax(fake.number().numberBetween(10, 50))
 				.attivita(list)
 				.prenotazioni(prenotazioni)
 				.build();
