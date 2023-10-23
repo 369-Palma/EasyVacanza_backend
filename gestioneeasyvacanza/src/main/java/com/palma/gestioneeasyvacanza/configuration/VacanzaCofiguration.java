@@ -15,6 +15,7 @@ import org.springframework.context.annotation.Scope;
 
 import com.github.javafaker.Faker;
 import com.palma.gestioneeasyvacanza.model.Attivita;
+import com.palma.gestioneeasyvacanza.model.Prenotazione;
 import com.palma.gestioneeasyvacanza.model.Preferenze;
 import com.palma.gestioneeasyvacanza.model.TipoAlloggio;
 import com.palma.gestioneeasyvacanza.model.TipologiaLuogo;
@@ -47,7 +48,7 @@ private TipologiaLuogo luogo;
        // double price = fake.random().nextDouble() * 270.0; // Genera un prezzo casuale tra 0 e 1000
         double price = fake.number().randomDouble(2, 200, 900);
 	    //per descrizione
-        Integer durataGiorni = fake.number().numberBetween(3, 15);
+        Integer durataGiorni = fake.number().numberBetween(5, 10);
         String durata = durataGiorni + " giorni";
         String citta = fake.country().capital();
 	            
@@ -60,6 +61,9 @@ private TipologiaLuogo luogo;
         
         List<Attivita> list = new ArrayList<>();
         list.add(attivitaService.getAttivitaRandom());
+        
+        List<Prenotazione> prenotazioni = new ArrayList<>();
+        prenotazioni.add(prenotazioneService.getPrenotazioneRandom());
 		return Vacanza.builder()
 				.citta(citta)
 				.indirizzo(fake.address().city())
@@ -72,8 +76,9 @@ private TipologiaLuogo luogo;
 				.alloggio(TipoAlloggio.AlloggioRandom())
 				.preferenza(Preferenze.PreferenzaRandom())
 				.prezzo(price)
+				.numeroMax(fake.number().numberBetween(10, 50))
 				.attivita(list)
-				.prenotazione(prenotazioneService.getPrenotazioneRandom())
+				.prenotazioni(prenotazioni)
 				.build();
 	}
 	

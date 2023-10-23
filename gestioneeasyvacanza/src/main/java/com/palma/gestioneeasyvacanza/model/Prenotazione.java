@@ -28,10 +28,14 @@ public class Prenotazione {
 	@Enumerated(EnumType.STRING)
 	private StatoPrenotazione stato;
 	
+	@ManyToOne
+    @JoinColumn(name = "id_vacanza")
+    private Vacanza vacanza;
+	
 	//@JsonIgnore
-	@OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.MERGE)
-	@JoinColumn(name = "id_vacanza")
-	private Vacanza vacanza;
+	//@OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.MERGE)
+	//@JoinColumn(name = "id_vacanza")
+	//private Vacanza vacanza;
 	
 	@JsonIgnore
 	@ManyToMany
